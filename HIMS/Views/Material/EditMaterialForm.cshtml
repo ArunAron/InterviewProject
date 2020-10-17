@@ -1,0 +1,70 @@
+﻿@model DataCore.Models.Material
+@using (Html.BeginForm("EditMaterial", "Material", FormMethod.Post, new { id = "EditMaterial" }))
+{
+<div class="modal-header bg-slate-800" style="border-radius:0">
+
+    @if (string.IsNullOrEmpty(Model.GUID))
+    {
+
+        <h5 class="modal-title font-weight-bold">Add Material Form</h5>
+    }
+    else
+    {
+        <h5 class="modal-title font-weight-bold">Update Material Form</h5>
+    }
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+ 
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label class="font-weight-bold">Material Name</label>
+                    @Html.TextBoxFor(a => a.MaterialName, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                    @Html.HiddenFor(a => a.ID)
+                    @Html.HiddenFor(a => a.GUID)
+                </div>
+                <div class="col-sm-6">
+                    <label class="font-weight-bold">ShortCut</label>
+                    @Html.TextBoxFor(a => a.ShortCut, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+
+                </div>
+                <div class="col-sm-6 mt-10">
+                    <label class="font-weight-bold">Material Type</label>
+                    <select id="MaterialType" name="MaterialType" class=" form-control">
+                        @if (ViewBag.MaterialTypeList != null)
+                        {
+                            foreach (var data in ViewBag.MaterialTypeList)
+                            {
+                                if (ViewBag.SelectedMaterialType == data.GUID)
+                                {
+                                    <option selected value="@data.GUID">@data.MaterialTypeName</option>
+                                }
+                                else
+                                {
+                                    <option value="@data.GUID">@data.MaterialTypeName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-6 mt-10">
+                    <label class="font-weight-bold">Quality</label>
+                    @Html.TextBoxFor(a => a.Quality, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+        @if (string.IsNullOrEmpty(Model.GUID))
+        {
+            <button type="submit" onclick="" class="btn btn-primary btn-ladda btn-ladda-spinner" data-spinner-color="#333" data-style="zoom-in"><span class="ladda-label">Save</span></button>
+        }
+        else
+        {
+            <button type="submit" onclick="" class="btn btn-primary btn-ladda btn-ladda-spinner" data-spinner-color="#333" data-style="zoom-in"><span class="ladda-label">Edit</span></button>
+        }
+    </div>
+}

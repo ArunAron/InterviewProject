@@ -1,0 +1,23 @@
+﻿@model  IEnumerable<DataCore.Models.SystemUserWarehouseMap>
+
+@*<div class="spinner-border text-info" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>*@
+<span class="d-block text-muted">Please Choose Warehouse</span>
+<hr style="width:100%" class=" bg-blue" />
+@using (Html.BeginForm("EnterSystem", "Login", FormMethod.Post, new { id = "EditSystemUser" }))
+{
+    <div class="form-group  row">
+
+        <label for="inputPassword" class="sr-only">Warehouse</label>
+
+        <select id="Warehouse" name="Warehouse" style="background-color:#010b26;color:white;width:65%" type="text" class="form-control" required>
+            @foreach (var data in Model)
+            {
+                <option value="@data.WarehouseGUID">@data.WarehouseName</option>
+            }
+        </select>
+        <button class="btn  btn-primary  rounded-round ml-3" style="border-radius:15px" type="submit">Sign in</button>
+
+    </div>
+}

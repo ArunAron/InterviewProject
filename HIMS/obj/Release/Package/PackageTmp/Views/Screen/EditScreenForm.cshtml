@@ -1,0 +1,74 @@
+﻿@model DataCore.Models.Screen
+@using (Html.BeginForm("EditScreen", "Screen", FormMethod.Post, new { id = "EditScreen" }))
+{
+<div class="modal-header bg-slate-800" style="border-radius:0">
+
+    @if (string.IsNullOrEmpty(Model.GUID))
+    {
+        <h4 class="modal-title font-weight-bold">Add Screen Form</h4>
+    }
+    else
+    {
+        <h4 class="modal-title font-weight-bold">Update Screen Form</h4>
+    }
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+   
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6 form-group mt-1">
+                    <label class="font-weight-bold">Screen Name</label>
+                    @Html.TextBoxFor(a => a.ScreenName, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                    @Html.HiddenFor(a => a.ID)
+                    @Html.HiddenFor(a => a.GUID)
+                </div>
+                <div class="col-sm-6 form-group mt-1">
+                    <label class="font-weight-bold">Screen UniqueName</label>
+                    @Html.TextBoxFor(a => a.ScreenUniqueName, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+
+                </div>
+                <div class="col-sm-6 form-group mt-1">
+                    <label class="font-weight-bold">Controller</label>
+                    @Html.TextBoxFor(a => a.Controller, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                </div>
+                <div class="col-sm-6 form-group mt-1">
+                    <label class="font-weight-bold">Action</label>
+                    @Html.TextBoxFor(a => a.Action, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                </div>
+                <div class="col-sm-12 form-group mt-1">
+                    <label class="font-weight-bold">Screen Category</label>
+                    <select id="ScreenCategory" name="ScreenCategory" class=" form-control">
+                        @if (ViewBag.ScreenCategoryList != null)
+                        {
+                            foreach (var data in ViewBag.ScreenCategoryList)
+                            {
+                                if (ViewBag.SelectedScreenCategory == data.GUID)
+                                {
+                                    <option selected value="@data.GUID">@data.ScreenCategoryName </option>
+                                }
+                                else
+                                {
+                                    <option value="@data.GUID">@data.ScreenCategoryName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+        @if (string.IsNullOrEmpty(Model.GUID))
+        {
+            <button type="submit" onclick="" class="btn btn-primary btn-ladda btn-ladda-spinner" data-spinner-color="#333" data-style="zoom-in"><span class="ladda-label">Save</span></button>
+        }
+        else
+        {
+            <button type="submit" onclick="" class="btn btn-primary btn-ladda btn-ladda-spinner" data-spinner-color="#333" data-style="zoom-in"><span class="ladda-label">Edit</span></button>
+        }
+    </div>
+}

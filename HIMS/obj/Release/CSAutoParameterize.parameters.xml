@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="myconnection-Web.config Connection String" description="myconnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5053.site4now.net;Initial Catalog=DB_A68F7D_razeraider;User Id=DB_A68F7D_razeraider_admin;Password=RAZEraider123" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Projects\\ANT\ TECH\\PIMS\\HIMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='myconnection']/@connectionString" />
+  </parameter>
+</parameters>

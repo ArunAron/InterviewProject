@@ -1,0 +1,97 @@
+﻿@model DataCore.Models.SystemUser
+@using (Html.BeginForm("EditSystemUser", "SystemUser", FormMethod.Post, new { id = "EditSystemUser" }))
+{
+<div class="modal-header bg-slate-800" style="border-radius:0">
+
+    @if (string.IsNullOrEmpty(Model.GUID))
+    {
+        <h4 class="modal-title font-weight-bold">Add System User Form</h4>
+    }
+    else
+    {
+        <h4 class="modal-title font-weight-bold">Update System User Form</h4>
+    }
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+   
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="form-group col-lg-6 mt-1">
+                    <label class="font-weight-bold">User Name</label>
+                    @Html.TextBoxFor(a => a.SystemUserName, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                    @Html.HiddenFor(a => a.ID)
+                    @Html.HiddenFor(a => a.GUID)
+                </div>
+                <div class="form-group col-lg-6 mt-1">
+                    <label class="font-weight-bold">Password</label>
+                    @Html.TextBoxFor(a => a.Password, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+
+                </div>
+                <div class="form-group col-lg-6 mt-1">
+                    <label class="font-weight-bold">Full Name</label>
+                    @Html.TextBoxFor(a => a.FullName, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+
+                </div>
+                <div class="form-group col-lg-6 mt-1">
+                    <label class="font-weight-bold">User Type</label>
+                    <select class="form-control" id="SystemUserType" name="SystemUserType">
+                        <option selected>Staff</option>
+                        <option>Medical Staff</option>
+                    </select>
+
+                </div>
+                <div class="form-group col-lg-6 mt-1">
+                    <label class="font-weight-bold">Role</label>
+                    <select id="Role" name="Role" class=" form-control">
+                        @if (ViewBag.RoleList != null)
+                        {
+                            foreach (var data in ViewBag.RoleList)
+                            {
+                                if (ViewBag.SelectedRole == data.GUID)
+                                {
+                                    <option selected value="@data.GUID">@data.RoleName</option>
+                                }
+                                else
+                                {
+                                    <option value="@data.GUID">@data.RoleName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group col-lg-6 mt-1">
+                    <label class="font-weight-bold">Department</label>
+                    <select id="Department" name="Department" class=" form-control">
+                        @if (ViewBag.DepartmentList != null)
+                        {
+                            foreach (var data in ViewBag.DepartmentList)
+                            {
+                                if (ViewBag.SelectedDepartment == data.GUID)
+                                {
+                                    <option selected value="@data.GUID">@data.DepartmentName</option>
+                                }
+                                else
+                                {
+                                    <option value="@data.GUID">@data.DepartmentName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+        @if (string.IsNullOrEmpty(Model.GUID))
+        {
+            <button type="submit" onclick="" class="btn btn-primary btn-ladda btn-ladda-spinner" data-spinner-color="#333" data-style="zoom-in"><span class="ladda-label">Save</span></button>
+        }
+        else
+        {
+            <button type="submit" onclick="" class="btn btn-primary btn-ladda btn-ladda-spinner" data-spinner-color="#333" data-style="zoom-in"><span class="ladda-label">Edit</span></button>
+        }
+    </div>
+}

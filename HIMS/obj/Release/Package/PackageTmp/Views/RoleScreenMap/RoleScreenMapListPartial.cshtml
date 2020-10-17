@@ -1,0 +1,69 @@
+﻿@model  IEnumerable<DataCore.Models.ScreenCategory>
+
+@{
+
+
+    foreach (var data in @Model)
+    {
+    <div class="mt-15 col-lg-4">
+        <fieldset >
+            <legend class="h5 font-weight-bold" style="padding-top:0">
+                @data.ScreenCategoryName
+            </legend>
+            <div class=" card " style="border-radius:10px">
+                <div class="table-responsive" style="border-radius:10px">
+                    <table class="table table-sm">
+                        <thead class="bg-slate-800">
+                            <tr>
+                               
+                                <th width="80%">Screen Name</th>
+                                <th width="20%" class="text-center">Access</th>
+                            </tr>
+                        </thead>
+                        @{
+                            var count = 1;
+                            var CP = Convert.ToInt32(1);
+                            CP = CP - 1;
+                            count = (CP * DataCore.CommonClass.PageSize) + 1;
+                            foreach (var screen in data.RoleScreenMapList)
+                            {
+                                var accessid = screen.ScreenName.Replace(" ", String.Empty) + "Access";
+                                <tr>
+                                    
+                                    <td width="20%">@screen.ScreenName </td>
+                                    <td width="10%" class="text-center">
+                                        @if (screen.AllowAccess == 1)
+                                        {
+                                            <div class="checkbox checkbox-switchery">
+                                                <label>
+                                                    <input type="checkbox" id="@accessid" class="switchery checkbox-switch" onclick="Access('@screen.ScreenGUID','@accessid');" checked="checked">
+                                                    <span class="text-success">Granted</span>
+                                                </label>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="checkbox checkbox-switchery">
+                                                <label>
+                                                    <input type="checkbox" id="@accessid" onclick="Access('@screen.ScreenGUID','@accessid');" class="switchery">
+                                                    <span class="text-danger">Denied&nbsp;</span>
+                                                </label>
+                                            </div>
+                                        }
+
+                                    </td>
+                                </tr>
+                                count++;
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+       
+
+    }
+}
+

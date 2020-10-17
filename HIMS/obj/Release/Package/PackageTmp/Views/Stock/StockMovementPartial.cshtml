@@ -1,0 +1,52 @@
+﻿@model  IEnumerable<DataCore.Models.StockMovement>
+
+@{
+    var count = 1;
+    var CP = Convert.ToInt32(ViewBag.CurrentPagePartial);
+    CP = CP - 1;
+    count = (CP * DataCore.CommonClass.PageSize) + 1;
+
+    foreach (var data in @Model)
+    {
+        <tr>
+            <td>@count</td>
+            @*<td>@data.WarehouseName</td>
+                <td>@data.MaterialName</td>*@
+            <td>@data.BatchNumber</td>
+            <td>@data.UOMType</td>
+            <td class="text-center">
+                @if (data.IN > 0)
+                {
+                    <i class="icon-arrow-down16 text-success-800 "></i>
+                    <span class="font-weight-bold text-lg">@data.IN</span>
+                }
+
+            </td>
+            <td class="text-center">
+                @if (data.OUT > 0)
+                {
+                    <i class="icon-arrow-up16 text-danger-800 "></i>
+                    <span class="font-weight-bold">@data.OUT</span>
+                }
+
+            </td>
+            <td class="text-center"><span class="font-weight-bold">@data.CurrentStock</span></td>
+            <td class="text-center">
+                @{
+                    if (data.Description == "OpeningStock")
+                    {
+                        <span class="badge badge-flat border-grey text-grey-600"> @data.Description</span>
+                    }
+                    else if (data.Description == "StockAdjust")
+                    {
+                        <span class="badge badge-flat border-primary text-primary-600"> @data.Description</span>
+                    }
+                }
+            </td>
+            <td><span class="font-weight-bold"> @data.UpDatedByName</span><br />@data.UpDatedDate</td>
+
+        </tr>
+        count++;
+    }
+}
+

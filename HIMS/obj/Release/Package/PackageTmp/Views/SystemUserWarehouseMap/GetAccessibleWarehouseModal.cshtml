@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DataCore.Models.SystemUserWarehouseMap>
+
+<div class="modal-header bg-slate-800" style="border-radius:0">
+    <h5 class="modal-title">Select Active Warehouse</h5>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<hr style="margin-top:0;margin-bottom:10px;" />
+<div class="modal-body" style="padding-bottom:0px">
+    <div class="form-group">
+        <div class="row">
+
+            @foreach (var data in Model)
+            {
+                if (ViewBag.CurrentWarehouseGUID == data.WarehouseGUID)
+                {
+                    <div class="col-lg-6">
+                        <div class="card card-body p-0" style="border-radius:20px;padding-right:10px;padding-left:10px;background-color:#b7fbac">
+                            <div class="media p-2">
+                                <div class="mr-3">
+                                    <img src="~/assets/images/warehouse2.png" style="width: 50px; height: 50px;" class="img-circle img-sm" alt="">
+                                </div>
+                                <div class="media-body row">
+                                    <div class="media-title mt-2 h6 font-weight-semibold">
+                                        @data.WarehouseName
+                                    </div>
+                                </div>
+                                <div class="media-right " style="margin-right:0px;padding-right:10px">
+                                    <button data-popup="tooltip" disabled data-container="body" class="btn btn-sm  mt-2 rounded-round bg-success" onclick="ChooseActiveWarehouse('@data.WarehouseGUID')">Active</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="col-lg-6">
+                        <div class="card card-body p-0" style="border-radius:20px;padding-right:10px;padding-left:10px;">
+                            <div class="media p-2">
+                                <div class="mr-3">
+                                    <img src="~/assets/images/warehouse2.png" style="width: 50px; height: 50px;" class="img-circle img-sm" alt="">
+                                </div>
+                                <div class="media-body row">
+                                    <div class="media-title mt-2 h6 font-weight-semibold">
+                                        @data.WarehouseName
+                                    </div>
+                                </div>
+                                <div class="media-right " style="margin-right:0px;padding-right:10px">
+                                    <button data-popup="tooltip"  data-container="body" class="btn btn-sm  mt-2 rounded-round bg-primary" onclick="ChooseActiveWarehouse('@data.WarehouseGUID')">Change</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            }
+        </div>
+    </div>
+</div>
+
+@*<hr style="margin-top:0;margin-bottom:10px;" />
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger rounded-round" data-dismiss="modal">Cancle</button>
+    </div>*@

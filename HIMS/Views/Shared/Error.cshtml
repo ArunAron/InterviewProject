@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutError.cshtml";
+    ViewBag.Title = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Session Time Out</title>
+</head>
+<body>
+    <hgroup class="text-white">
+        <h1> Session Time Out</h1>
+        <br />
+        <div class="row">
+            <h3>Please Login again to Continue ...  </h3>
+            <a class="btn btn-primary ml-5" href="@Url.Action("Index","Login")" style="border-radius:15px"> Login</a>
+        </div>
+    </hgroup>
+</body>
+</html>

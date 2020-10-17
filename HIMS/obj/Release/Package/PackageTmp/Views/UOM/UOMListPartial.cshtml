@@ -1,0 +1,23 @@
+﻿@model  IEnumerable<DataCore.Models.UOM>
+@{ Layout = null; }
+@{
+  
+    foreach (var data in @Model)
+    {
+        <tr>
+            <td class="font-weight-bold">@data.Level</td>
+            <td>@data.Quantity</td>
+            <td>@data.Type</td>
+            <td>@data.Description</td>
+            @*<td>@data.CreatedByName<br />@data.CreatedDate</td>*@
+            <td> <span class="font-weight-bold">@data.UpDatedByName</span> <br />@data.UpDatedDate</td>
+            <td class="text-center">
+                <button class="btn btn-sm  btn-icon rounded-round btn-info "  onclick="return editClick('@data.GUID','@data.Level','@data.Quantity','@data.Type')"><b><i class="icon-pencil7"></i></b></button>
+               
+                <button class="btn btn-sm btn-icon rounded-round  btn-danger " onclick="DeleteUOM('@data.GUID')"><b><i class="icon-trash"></i></b> </button>
+            </td>
+        </tr>
+       
+    }
+}
+

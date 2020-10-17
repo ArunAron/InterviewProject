@@ -1,0 +1,255 @@
+﻿@model DataCore.SearchModel.SM_Department
+<!-- Core JS files -->
+
+
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class=" col-sm-6"><h4 class="panel-title font-weight-bold">Department List</h4></div>
+        <div class=" col-sm-6 text-right"><button class="btn bg-success-800 btn-labeled btn-labeled-right rounded-round " onclick="Add()"><b><i class="icon icon-add"></i> </b> Add New</button></div>
+    </div>
+    <fieldset>
+        <legend class="text-semibold">
+            <i class="icon-search4 position-left"></i>
+            Search Field
+        </legend>
+        <!-- Search Fliters -->
+
+        @using (Html.BeginForm("SearchDepartment", "Department", FormMethod.Post, new { enctype = "multipart/form-data", @name = "form-addnewUser" }))
+        {
+            <div class=" row ">
+                <div class="form-group col-lg-3 mt-1">
+                    <label class="font-weight-bold">Department Name</label>
+                    @Html.EditorFor(model => model.DepartmentName, new { htmlAttributes = new { @class = "form-control", @id = "DepartmentName", @autocomplete = "off" } })
+                    @Html.HiddenFor(model => model.DepartmentID, new { htmlAttributes = new { @class = "form-control", @id = "DepartmentID", @autocomplete = "off" } })
+                </div>
+                <div class=" col-lg-9 mt-1 text-left"><button class="btn bg-teal-700 rounded-round mt-4" type="submit"> Search </button></div>
+            </div>
+        }
+
+    </fieldset>
+    <hr />
+    <div class="card " style="border-radius:10px">
+        <div class="">
+            <div class="table-responsive" style="border-radius:10px">
+                <table class="table table-hover table-sm " style="border-radius:20px">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="text-center">Actions</th>
+                            <th>#</th>
+                            <th>Department Name</th>
+                            <th>Department Code</th>
+                            <th>Description</th>
+                            <th>Updated By/Date</th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body -->
+                    <tbody id="tablebody">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Pagination -->
+    <div id="pagination"></div>
+</div>
+
+<div id="DataEditFormModalBody" class="modal fade" tabindex="-1" Department="dialog" aria-labelledby="myModal-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="EditFormModalBody">
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/assets/js/core/app.js"></script>
+<script>
+        var CurrentPage = @Html.Raw(Json.Encode(Model.CurrentPage));
+        var TotalCount = @Html.Raw(Json.Encode(Model.TotalPage));
+        var searchData = {
+            'DepartmentID': @Html.Raw(Json.Encode(Model.DepartmentID)),
+            'DepartmentName': @Html.Raw(Json.Encode(Model.DepartmentName)),
+            'TotalCount': @Html.Raw(Json.Encode(Model.TotalCount)),
+            'TotalPage': @Html.Raw(Json.Encode(Model.TotalPage)),
+            'CurrentPage': @Html.Raw(Json.Encode(Model.CurrentPage)),
+    }
+
+    $(document).ready(function () {
+
+        Pagination(CurrentPage, TotalCount);
+        showlist("#tablebody", searchData);
+        $("#DepartmentName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetDepartmentName", "Common")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.DepartmentName,
+                                value: item.DepartmentName,
+                                id: item.ID
+                            };
+                        }));
+                    }
+
+                })
+            },
+            select: function (event, ui) {
+                $("#DepartmentID").val(ui.item.id);
+            },
+            messages: {
+                noResults: "",
+                results: function (count) {
+                    return count + (count > 1 ? ' results' : ' result ') + ' found';
+                }
+            }
+        });
+    });
+
+    function Edit(GUID) {
+
+        BindEditForm(GUID, "Edit");
+    }
+    function Add() {
+
+        BindEditForm("","Add");
+    }
+    function showlist(div, passdata) {
+        var data = JSON.stringify(passdata);
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("DepartmentListPartial", "Department")',
+            contentType: 'application/json; charset=utf-8',
+            data: { getpassdata: data},
+            beforesend: function () {
+                $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+                },
+            success: function (myData) {
+                 $(div).empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+    }
+    function Pagination(Page, Count) {
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("Pagination", "Common")',
+            data: { Page: Page, Count: Count},
+            //beforeSend: function () {
+            //    $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+            //},
+            success: function (myData) {
+                $("#pagination").empty().append(myData);
+            },
+            complete: function () {
+            }
+        });
+    }
+    function GetTotalPage() {
+        var data = JSON.stringify(passdata);
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("GetTotalPage", "Department")',
+            data: { getpassdata: data},
+            success: function (myData) {
+                              searchData.TotalPage = myData;
+            },
+            complete: function () {
+            }
+        });
+    }
+    function Delete(GUID) {
+           swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this data!",
+               type: "warning",
+               icon: "warning",
+               buttons: true,
+               dangerMode: true,})
+                .then((willDelete) => {
+                    if (willDelete) {
+                       $.ajax({
+                        cache: false,
+                        url: '@Url.Action("DeleteDepartment", "Department")',
+                        contentType: 'application/json; charset=utf-8',
+                        data: { GUID: GUID},
+
+                        success: function (myData) {
+                            if (myData == "Success") {
+
+                                swal("Poof! Your data has been deleted!", {
+                                icon: "success",});
+                                Pagination(CurrentPage, TotalCount);
+                                showlist("#tablebody", searchData);
+                            }
+                            else {
+                                swal("", "Oops! Process Fail !!", "fail");
+                            }
+                         }
+
+                     });
+
+                    } else {
+                        swal("Your data is safe!");
+                            }
+                });
+    }
+    function pageFunction(current) {
+        searchData.CurrentPage = current;
+        Pagination(current, TotalCount);
+        showlist("#tablebody", searchData);
+    }
+    function BindEditForm(GUID,Type) {
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("EditDepartmentForm", "Department")',
+                data: { GUID: GUID},
+                beforeSend: function () {
+                },
+                success: function (Data) {
+                    $("#EditFormModalBody").empty().append(Data);
+                },
+                complete: function () {
+                    $("#DataEditFormModalBody").modal('show');
+                    $('#EditDepartment').submit(function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            cache: false,
+                            url: $(this).attr('action'),
+                            data: $(this).serialize(),
+                            type: "POST",
+                            beforeSend: function () {
+                                $('#savebtn').empty().append('<span class="spinner icon-spinner4"></span> Saving...');
+                                $('#savebtn').prop("disabled", true);
+                            },
+                            success: function (myData) {
+                                if (myData == "Success") {
+                                    if (Type == "Add") {
+                                        swal("", "Successfully Saved!", "success");
+                                    }
+                                    else {
+                                        swal("", "Successfully Edited !", "success");
+                                    }
+
+                                }
+                                else {
+                                    swal("", "Oops! Process Fail !!", "fail");
+                                }
+                                $("#DataEditFormModalBody").modal('hide');
+                                showlist("#tablebody", searchData);
+                            },
+                            complete: function () {
+                            }
+                        });
+                    });
+                }
+            });
+    }
+</script>

@@ -1,0 +1,514 @@
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\HIMS.dll.config
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\HIMS.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\HIMS.pdb
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\csc.exe
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\csc.exe.config
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\csc.rsp
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\csi.exe
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\csi.exe.config
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\csi.rsp
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.AppContext.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Console.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Globalization.Calendars.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.IO.Compression.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.IO.FileSystem.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Net.Http.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Net.Sockets.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.ValueTuple.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Xml.XPath.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\vbc.exe
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\vbc.exe.config
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\vbc.rsp
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\VBCSCompiler.exe
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\Antlr3.Runtime.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\DataCore.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\Newtonsoft.Json.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Helpers.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Mvc.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Optimization.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Razor.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.WebPages.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.WebPages.Razor.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\WebGrease.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\PagedList.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\DataCore.pdb
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Helpers.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Mvc.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Optimization.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.Razor.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.WebPages.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\System.Web.WebPages.Razor.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\Newtonsoft.Json.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\Antlr3.Runtime.pdb
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\bin\PagedList.xml
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\obj\Release\HIMS.csprojAssemblyReference.cache
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\obj\Release\HIMS.csproj.CoreCompileInputs.cache
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\obj\Release\HIMS.csproj.CopyComplete
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\obj\Release\HIMS.dll
+C:\Projects\Ant Tech\HIMS\HIMS\HIMS\obj\Release\HIMS.pdb
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\HIMS.dll.config
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\HIMS.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\HIMS.pdb
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\csc.exe
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\csc.exe.config
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\csc.rsp
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\csi.exe
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\csi.exe.config
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\csi.rsp
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.AppContext.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Console.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Globalization.Calendars.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.IO.Compression.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.IO.FileSystem.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Net.Http.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Net.Sockets.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.ValueTuple.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Xml.XPath.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\vbc.exe
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\vbc.exe.config
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\vbc.rsp
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\VBCSCompiler.exe
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\Antlr3.Runtime.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\DataCore.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\Newtonsoft.Json.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Helpers.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Mvc.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Optimization.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Razor.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.WebPages.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.WebPages.Razor.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\WebGrease.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\PagedList.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\DataCore.pdb
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Helpers.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Mvc.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Optimization.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.Razor.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.WebPages.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\System.Web.WebPages.Razor.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\Newtonsoft.Json.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\Antlr3.Runtime.pdb
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\bin\PagedList.xml
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\obj\Release\HIMS.csproj.CoreCompileInputs.cache
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\obj\Release\HIMS.csproj.CopyComplete
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\obj\Release\HIMS.dll
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\obj\Release\HIMS.pdb
+C:\Projects\Ant Tech\HIMS 2.0\HIMS\HIMS\obj\Release\HIMS.csprojAssemblyReference.cache
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\HIMS.dll.config
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\HIMS.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\HIMS.pdb
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\csc.exe
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\csc.exe.config
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\csc.rsp
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\csi.exe
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\csi.exe.config
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\csi.rsp
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.AppContext.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Console.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Globalization.Calendars.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.IO.Compression.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.IO.FileSystem.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Net.Http.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Net.Sockets.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.ValueTuple.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Xml.XPath.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\vbc.exe
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\vbc.exe.config
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\vbc.rsp
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\VBCSCompiler.exe
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\Antlr3.Runtime.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\DataCore.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\Newtonsoft.Json.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Helpers.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Mvc.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Optimization.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Razor.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.WebPages.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.WebPages.Razor.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\WebGrease.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\PagedList.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\DataCore.pdb
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Helpers.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Mvc.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Optimization.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.Razor.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.WebPages.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\System.Web.WebPages.Razor.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\Newtonsoft.Json.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\Antlr3.Runtime.pdb
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\bin\PagedList.xml
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\obj\Release\HIMS.csprojAssemblyReference.cache
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\obj\Release\HIMS.csproj.CoreCompileInputs.cache
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\obj\Release\HIMS.csproj.CopyComplete
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\obj\Release\HIMS.dll
+C:\Projects\Ant Tech\Prabhu IMS\HIMS\obj\Release\HIMS.pdb
+C:\Projects\PIMS\HIMS\bin\HIMS.dll.config
+C:\Projects\PIMS\HIMS\bin\HIMS.dll
+C:\Projects\PIMS\HIMS\bin\HIMS.pdb
+C:\Projects\PIMS\HIMS\bin\roslyn\csc.exe
+C:\Projects\PIMS\HIMS\bin\roslyn\csc.exe.config
+C:\Projects\PIMS\HIMS\bin\roslyn\csc.rsp
+C:\Projects\PIMS\HIMS\bin\roslyn\csi.exe
+C:\Projects\PIMS\HIMS\bin\roslyn\csi.exe.config
+C:\Projects\PIMS\HIMS\bin\roslyn\csi.rsp
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\PIMS\HIMS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.AppContext.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Console.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Globalization.Calendars.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.IO.Compression.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.IO.FileSystem.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Net.Http.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Net.Sockets.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.ValueTuple.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Xml.XPath.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Projects\PIMS\HIMS\bin\roslyn\vbc.exe
+C:\Projects\PIMS\HIMS\bin\roslyn\vbc.exe.config
+C:\Projects\PIMS\HIMS\bin\roslyn\vbc.rsp
+C:\Projects\PIMS\HIMS\bin\roslyn\VBCSCompiler.exe
+C:\Projects\PIMS\HIMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\PIMS\HIMS\bin\Antlr3.Runtime.dll
+C:\Projects\PIMS\HIMS\bin\DataCore.dll
+C:\Projects\PIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\PIMS\HIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\PIMS\HIMS\bin\Newtonsoft.Json.dll
+C:\Projects\PIMS\HIMS\bin\System.Web.Helpers.dll
+C:\Projects\PIMS\HIMS\bin\System.Web.Mvc.dll
+C:\Projects\PIMS\HIMS\bin\System.Web.Optimization.dll
+C:\Projects\PIMS\HIMS\bin\System.Web.Razor.dll
+C:\Projects\PIMS\HIMS\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\PIMS\HIMS\bin\System.Web.WebPages.dll
+C:\Projects\PIMS\HIMS\bin\System.Web.WebPages.Razor.dll
+C:\Projects\PIMS\HIMS\bin\WebGrease.dll
+C:\Projects\PIMS\HIMS\bin\PagedList.dll
+C:\Projects\PIMS\HIMS\bin\DataCore.pdb
+C:\Projects\PIMS\HIMS\bin\System.Web.Helpers.xml
+C:\Projects\PIMS\HIMS\bin\System.Web.Mvc.xml
+C:\Projects\PIMS\HIMS\bin\System.Web.Optimization.xml
+C:\Projects\PIMS\HIMS\bin\System.Web.Razor.xml
+C:\Projects\PIMS\HIMS\bin\System.Web.WebPages.xml
+C:\Projects\PIMS\HIMS\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\PIMS\HIMS\bin\System.Web.WebPages.Razor.xml
+C:\Projects\PIMS\HIMS\bin\Newtonsoft.Json.xml
+C:\Projects\PIMS\HIMS\bin\Antlr3.Runtime.pdb
+C:\Projects\PIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\PIMS\HIMS\bin\PagedList.xml
+C:\Projects\PIMS\HIMS\obj\Release\HIMS.csprojAssemblyReference.cache
+C:\Projects\PIMS\HIMS\obj\Release\HIMS.csproj.CoreCompileInputs.cache
+C:\Projects\PIMS\HIMS\obj\Release\HIMS.csproj.CopyComplete
+C:\Projects\PIMS\HIMS\obj\Release\HIMS.dll
+C:\Projects\PIMS\HIMS\obj\Release\HIMS.pdb
+C:\Projects\ANT TECH\PIMS\HIMS\bin\HIMS.dll.config
+C:\Projects\ANT TECH\PIMS\HIMS\bin\HIMS.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\HIMS.pdb
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\csc.exe
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\csc.exe.config
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\csc.rsp
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\csi.exe
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\csi.exe.config
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\csi.rsp
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.AppContext.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Console.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Globalization.Calendars.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.IO.Compression.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.IO.FileSystem.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Net.Http.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Net.Sockets.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.ValueTuple.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Xml.XPath.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\vbc.exe
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\vbc.exe.config
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\vbc.rsp
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\VBCSCompiler.exe
+C:\Projects\ANT TECH\PIMS\HIMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\ANT TECH\PIMS\HIMS\bin\Antlr3.Runtime.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\DataCore.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\DevExtreme.AspNet.Data.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\DevExtreme.AspNet.Mvc.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\Newtonsoft.Json.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Net.Http.Formatting.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Helpers.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Http.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Mvc.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Optimization.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Razor.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.WebPages.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.WebPages.Razor.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\WebGrease.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\PagedList.dll
+C:\Projects\ANT TECH\PIMS\HIMS\bin\DataCore.pdb
+C:\Projects\ANT TECH\PIMS\HIMS\bin\DevExtreme.AspNet.Data.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\DevExtreme.AspNet.Mvc.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Net.Http.Formatting.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Http.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Helpers.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Mvc.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Optimization.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.Razor.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.WebPages.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\System.Web.WebPages.Razor.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\Newtonsoft.Json.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\Antlr3.Runtime.pdb
+C:\Projects\ANT TECH\PIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\ANT TECH\PIMS\HIMS\bin\PagedList.xml
+C:\Projects\ANT TECH\PIMS\HIMS\obj\Release\HIMS.csprojAssemblyReference.cache
+C:\Projects\ANT TECH\PIMS\HIMS\obj\Release\HIMS.csproj.CoreCompileInputs.cache
+C:\Projects\ANT TECH\PIMS\HIMS\obj\Release\HIMS.csproj.CopyComplete
+C:\Projects\ANT TECH\PIMS\HIMS\obj\Release\HIMS.dll
+C:\Projects\ANT TECH\PIMS\HIMS\obj\Release\HIMS.pdb
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\HIMS.dll.config
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\HIMS.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\HIMS.pdb
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\csc.exe
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\csc.exe.config
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\csc.rsp
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\csi.exe
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\csi.exe.config
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\csi.rsp
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.AppContext.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Console.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Globalization.Calendars.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.IO.Compression.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.IO.FileSystem.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Net.Http.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Net.Sockets.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.ValueTuple.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Xml.XPath.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\vbc.exe
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\vbc.exe.config
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\vbc.rsp
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\VBCSCompiler.exe
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\Antlr3.Runtime.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\DataCore.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\DevExtreme.AspNet.Data.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\DevExtreme.AspNet.Mvc.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\Newtonsoft.Json.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Net.Http.Formatting.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Helpers.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Http.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Mvc.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Optimization.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Razor.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.WebPages.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.WebPages.Razor.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\WebGrease.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\PagedList.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\DataCore.pdb
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\DevExtreme.AspNet.Data.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\DevExtreme.AspNet.Mvc.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Net.Http.Formatting.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Http.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Helpers.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Mvc.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Optimization.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.Razor.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.WebPages.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\System.Web.WebPages.Razor.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\Newtonsoft.Json.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\Antlr3.Runtime.pdb
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\bin\PagedList.xml
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\obj\Release\HIMS.csprojAssemblyReference.cache
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\obj\Release\HIMS.csproj.CoreCompileInputs.cache
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\obj\Release\HIMS.csproj.CopyComplete
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\obj\Release\HIMS.dll
+C:\Projects\ANT TECH\Interview\PIMS\HIMS\obj\Release\HIMS.pdb

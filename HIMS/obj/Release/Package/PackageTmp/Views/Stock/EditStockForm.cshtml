@@ -1,0 +1,61 @@
+﻿@model DataCore.Models.Stock
+@using (Html.BeginForm("EditStock", "Stock", FormMethod.Post, new { id = "EditStock" }))
+{
+    <div class="modal-header bg-slate-800" style="border-radius:0">
+        <h5 class="modal-title">Adjust Stock</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="row">
+                @Html.HiddenFor(a => a.ID)
+                @Html.HiddenFor(a => a.GUID)
+                @Html.HiddenFor(a => a.MaterialGUID)
+                @Html.HiddenFor(a => a.WarehouseGUID)
+                @Html.HiddenFor(a => a.Quantity)
+                <div class=" col-sm-6 mt-2"><label class="font-weight-bold text-size-large">Warehouse</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.WarehouseName" /> </div>
+                <div class=" col-sm-6 mt-2"><label class="font-weight-bold text-size-large">Material Name</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.MaterialName" /> </div>
+                <div class=" col-sm-6 mt-2"><label class="font-weight-bold text-size-large">Type</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.UOMType" /> </div>
+                <div class=" col-sm-6 mt-2"><label class="font-weight-bold text-size-large">Description</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.Description" /> </div>
+               
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-6 mt-1">
+                    <label class="font-weight-bold">Expiry Date</label>
+                    @Html.TextBoxFor(a => a.ExpiryDate, new { type = "date", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                </div>
+                <div class="col-sm-6 mt-1">
+                    <label class="font-weight-bold">Batch Number</label>
+                    @Html.TextBoxFor(a => a.BatchNumber, new { type = "text", @class = "form-control round", placeholder = "", required = "required", autocomplete = "off" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-6  mt-1">
+                    <lable class="font-weight-bold">Quantity</lable><br />
+                    <span class="form-control mt-2 " style="background-color:gainsboro">@Html.DisplayTextFor(a => a.Quantity)</span>
+                </div>
+                <div class="col-sm-4 mt-1">
+                    <label class="font-weight-bold">Add/Remove Quantity</label>
+                    <input type="number" id="adjustQty" name="adjustQty" class="form-control" />
+                </div>
+                <div class="col-sm-2 mt-1">
+                    <label class="font-weight-bold">Action</label>
+                    <select id="action" name="action" class="form-control">
+                        <option value="plus">+</option>
+                        <option value="minus">-</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+
+        <button type="submit" onclick="" class="btn btn-primary">Adjust</button>
+
+    </div>
+}

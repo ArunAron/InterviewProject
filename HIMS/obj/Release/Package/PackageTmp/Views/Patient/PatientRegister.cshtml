@@ -1,0 +1,350 @@
+﻿@model DataCore.Models.Patient
+
+@{
+    ViewBag.Title = "Opening Stock";
+}
+
+@using (Html.BeginForm("EditPatientRegister", "Patient", FormMethod.Post, new { id = "EditStock" }))
+{
+    <div class="card" style="border-radius:10px">
+        <div class=" card-body" >
+            <div class="row">
+
+                <div class=" col-lg-6 mt-10"><h4 class="panel-title font-weight-bold mt-20">Patient Register Form</h4></div>
+                <div class=" col-lg-3"></div>
+                <div class=" col-lg-3 ">
+                    <label class="font-weight-bold">Patient Code </label>
+                    @Html.TextBoxFor(a => a.PatientCode, new { type = "text", @class = "form-control", placeholder = "", autocomplete = "off" })
+                </div>
+
+            </div>
+            <hr class="bg-blue-800" />
+            <div class="row mt-1">
+                <!-- Search Fliters -->
+                <div class="col-12 mt-3 row">
+                    <div class=" col-lg-4 form-group">
+                        <label class="font-weight-bold">Patient Name *</label>
+                        @Html.TextBoxFor(a => a.PatientName, new { type = "text", @class = "form-control", placeholder = "Patient Name", autocomplete = "off", onfocus = "onFocus('PatientName')" })
+                    </div>
+                    <div class=" col-lg-4 form-group">
+                        <label class="font-weight-bold">Father Name *</label>
+                        @Html.TextBoxFor(a => a.FatherName, new { type = "text", @class = "form-control", placeholder = "Father Name", autocomplete = "off", onfocus = "onFocus('FatherName')" })
+                    </div>
+                    <div class=" col-lg-4 form-group">
+                        <label class="font-weight-bold">Patient Type</label>
+                        <select id="PatientType" name="PatientType" class="form-control">
+                            <option value="Adult">Adult</option>
+                            <option value="Child">Child</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 mt-3 row">
+                    <div class=" col-lg-4 form-group">
+                        <label class="font-weight-bold">Date of Birth  *</label>
+                        <div class="row">
+                            <div class=" col-sm-3 ">
+                                <div id="Errorday">
+                                    <input type="number" id="day" class=" form-control " name="day" placeholder="Day" max="31" min="1" oninput="validity.valid||(value='');" onfocus="onFocus('day')" />
+                                </div>
+                            </div>
+                            <div class=" col-sm-5 ">
+                                <select id="month" name="month" class="form-control">
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
+                            <div class=" col-sm-4 ">
+                                <input type="text" id="year" onfocus="onFocus('year')" class="  form-control " name="year" placeholder="Year" maxlength="4" max="3000" min="1" oninput="validity.valid||(value='');" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 form-group">
+
+                        <label class="font-weight-bold">Age *</label>
+                        <div class="row">
+                            <div class=" col-sm-4 ">
+                                <div id="ErrorAge">
+                                    @Html.TextBoxFor(a => a.Age, new { type = "number", @class = "form-control", placeholder = "Age", autocomplete = "off", onfocus = "onFocus('Age')" })
+                                </div>
+                            </div>
+                            <div class=" col-sm-8 ">
+                                <select id="AgeUnit" name="AgeUnit" class="form-control">
+                                    <option value="Days">Days</option>
+                                    <option value="Months">Months</option>
+                                    <option value="Years" selected>Years</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label class="font-weight-bold">Gender</label>
+                        <select id="Gender" name="Gender" class="form-control">
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 mt-3  row">
+                    <div class=" col-lg-4 form-group ">
+                        <label class="font-weight-bold">Address  *</label>
+                        @Html.TextAreaFor(a => a.Address, new { type = "text", @class = "form-control", placeholder = "Address", autocomplete = "off", style = "resize:none", onfocus = "onFocus('Address')" })
+                    </div>
+                    <div class=" col-lg-4 form-group">
+                        <label class="font-weight-bold">City  *</label>
+                        @Html.TextBoxFor(a => a.City, new { type = "text", @class = "form-control", placeholder = "City", autocomplete = "off", onfocus = "onFocus('City')" })
+                    </div>
+                    <div class=" col-lg-4 form-group">
+                        <label class="font-weight-bold">Nationality</label>
+                        <select id="Nationality" name="Nationality" class="form-control">
+                            @foreach (var country in ViewBag.CountryList)
+                            {
+                                if (country.Name == "Myanmar")
+                                {
+                                    <option value="@country.Name" selected>@country.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@country.Name">@country.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 mt-3 row">
+                    <div class=" col-lg-4 form-group ">
+                        <label class="font-weight-bold">Contact Number  *</label>
+                        @Html.TextBoxFor(a => a.Phone, new { type = "text", @class = "form-control", placeholder = "Phone Number", autocomplete = "off", style = "resize:none", onfocus = "onFocus('Phone')" })
+                    </div>
+                    <div class=" col-lg-4 form-group">
+                        <label class="font-weight-bold">Email</label>
+                        @Html.TextBoxFor(a => a.Email, new { type = "text", @class = "form-control", placeholder = "Email", autocomplete = "off" })
+                    </div>
+                    <div class=" col-lg-4 form-group">
+                        <div class=" col-md-12 ">
+                            <label class="font-weight-bold">Patient Photo</label>
+                        </div>
+                        <div class=" col-md-12 ">
+                            @Html.HiddenFor(a => a.Photo, new { type = "hidden", @class = "form-control hide", placeholder = "", autocomplete = "off", style = "resize:none", id = "Photo" })
+                            <div class="card">
+                                <div class="card-img-actions">
+                                    <img id="patientphoto" class="card-img-top img-fluid" width="100" height="300" src="~/assets/images/placeholder2.jpg" alt="">
+                                    <div class="card-img-actions-overlay card-img-top">
+                                        <input id="upload" hidden class="hidden" type="file" onchange="onFileSelected(event)" accept="image/*">
+                                        <a href="#" id="upload_link" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round">
+                                            <i class="icon-upload"></i>
+                                        </a>
+                                        <a href="user_pages_profile.html" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round ml-2">
+                                            <i class="icon-camera"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-slate-800" style="border-radius:0">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirm Save</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to save !
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn rounded-round btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" id="btnSubmit" class="btn rounded-round btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="text-right">
+    <button id="savebutton" class="btn btn-labeled btn-labeled-right rounded-round btn-lg bg-teal-800 btn-labeled"><b><i class="icon-floppy-disk"></i></b> Save</button>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        //$('#dtBasicExample').DataTable({
+        //    searching: false,
+        //});
+        $('#fromdate').datepicker({
+            format: 'dd-mm-yyyy',
+        });
+
+        $('#savebutton').click(function () {
+            var errorexit = checkValidation();
+            if (errorexit == 0) {
+                $('#Type').addClass("hidden");
+                $('#confirmModal').modal('show');
+            }
+        });
+    });
+
+    $("#upload_link").on('click', function (e) {
+        e.preventDefault();
+        $("#upload:hidden").trigger('click');
+    });
+
+    function onFileSelected(event) {
+        var selectedFile = event.target.files[0];
+
+        var reader = new FileReader();
+
+        var imgtag = document.getElementById("patientphoto");
+        imgtag.title = selectedFile.name;
+
+        reader.onload = function (event) {
+            imgtag.src = event.target.result;
+        };
+        var data = new FormData();
+        data.append(selectedFile.name, selectedFile);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("UploadPatientPhoto", "Patient")',
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (result) {
+                $('#Photo').val(result);
+            },
+            error: function (xhr, status, p3, p4) {
+                var err = "Error " + " " + status + " " + p3 + " " + p4;
+                if (xhr.responseText && xhr.responseText[0] == "{")
+                    err = JSON.parse(xhr.responseText).Message;
+                console.log(err);
+            }
+        });
+        reader.readAsDataURL(selectedFile);
+    }
+
+    function onFocus(id) {
+        $("#" + id).removeClass("border-danger");
+    }
+
+    function checkValidation() {
+
+        var checkPatientName = $('#PatientName').val();
+        var checkFatherName = $('#FatherName').val();
+        var checkday = $('#day').val();
+        var checkyear = $('#year').val();
+        var checkAge = $('#Age').val();
+        var checkAddress = $('#Address').val();
+        var checkCity = $('#City').val();
+        var checkPhone = $('#Phone').val();
+
+        var errorexit = 0;
+
+        if (checkPatientName == "") {
+            $('#PatientName').addClass("border-danger");
+            errorexit++;
+        }
+        if (checkFatherName == "") {
+            $('#FatherName').addClass("border-danger");
+            errorexit++;
+        }
+        if (checkday == "") {
+            $('#day').addClass("border-danger");
+            errorexit++;
+        }
+        if (checkyear == "") {
+            $('#year').addClass("border-danger");
+            errorexit++;
+        }
+        if (checkAge == "") {
+            $('#Age').addClass("border-danger");
+            errorexit++;
+        }
+        if (checkAddress == "") {
+            $('#Address').addClass("border-danger");
+            errorexit++;
+        }
+        if (checkCity == "") {
+            $('#City').addClass("border-danger");
+            errorexit++;
+        }
+        if (checkPhone == "") {
+            $('#Phone').addClass("border-danger");
+            errorexit++;
+        }
+        return errorexit;
+    }
+
+    function getAllData() {
+
+        var WarehouseGUID = $('#Warehouse').val();
+        var data = [];
+        var count = 1;
+        $('#tblOne > tbody > tr').each(function () {
+            var MaterialName = $(this).find('#MaterialName' + count).val();
+            var MaterialGUID = $(this).find('#MaterialGUID' + count).val();
+            var UOMType = $(this).find('#UOMType' + count).val();
+            var Quantity = $(this).find('#Quantity' + count).val();
+            var BatchNumber = $(this).find('#BatchNumber' + count).val();
+            var ExpiryDate = $(this).find('#ExpiryDate' + count).val();
+            var alldata = {
+                'ID': 0,
+                'GUID': "",
+                'MaterialCode': "",
+                'MaterialGUID': MaterialGUID,
+                'MaterialName': MaterialName,
+                'UOMType': UOMType,
+                'WarehouseGUID': WarehouseGUID,
+                'WarehouseName': "",
+                'Quantity': Quantity,
+                'BatchNumber': BatchNumber,
+                'Description': "",
+                'ExpiryDate': ExpiryDate,
+                'CreatedDate': "",
+                'CreatedBy': "",
+                'CreatedByName': "",
+                'UpDatedDate': "",
+                'UpDatedBy': "",
+                'UpDatedByName': "",
+                'Status': 1,
+            }
+            data.push(alldata);
+            count++;
+        });
+        console.log(data);
+        return data;
+    }
+
+    function RemoveRow(count) {
+        var idstring = "#tr" + count;
+        $(idstring).remove();
+
+        count--;
+        $('#totalCount').val(count);
+        var idstringR = "#Remove" + count;
+        $(idstringR).attr("hidden", false);
+
+        var idstringA = "#Add" + count;
+        $(idstringA).attr("hidden", false);
+    }
+
+</script>
+
+
+

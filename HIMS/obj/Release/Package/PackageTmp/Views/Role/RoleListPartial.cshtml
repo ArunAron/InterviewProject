@@ -1,0 +1,36 @@
+﻿
+@model  IEnumerable<DataCore.Models.Role>
+
+@{
+    var count = 1;
+    var CP = Convert.ToInt32(ViewBag.CurrentPagePartial);
+    CP = CP - 1;
+    count = (CP * DataCore.CommonClass.PageSize) + 1;
+
+    foreach (var data in @Model)
+    {
+    <tr>
+
+        <td class="text-center">
+            <div class="list-icons">
+                <button data-popup="tooltip" title="Update" class="btn btn-sm btn-icon  rounded-round  btn-outline-info " onclick="Edit('@data.GUID')"><b><i class="icon icon-pencil7 "></i></b> </button>
+                <button data-popup="tooltip" title="Delete" class="btn  btn-sm btn-icon  rounded-round  btn-outline-danger " onclick="Delete('@data.GUID')"><b><i class="icon-trash "></i></b> </button>
+            </div>
+        </td>
+        <td>@count</td>
+        <td>@data.RoleName</td>
+        <td>@data.RoleCode</td>
+        <td>@data.Description</td>
+        <td>
+            <span class="font-weight-bold">@data.UpDatedByName</span>
+            <div class="text-muted font-size-sm">
+                <span class="badge badge-mark border-blue mr-1"></span>
+                @data.UpDatedDate
+            </div>
+        </td>
+
+    </tr>
+        count++;
+    }
+}
+

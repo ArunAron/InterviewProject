@@ -1,0 +1,234 @@
+﻿@model DataCore.SearchModel.SM_ScreenCategory
+<!-- Core JS files -->
+
+
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class=" col-lg-6"><h4 class="panel-title font-weight-bold">Screen Category List</h4></div>
+        <div class=" col-lg-6 text-right"><button class="btn btn-labeled btn-labeled-right bg-success-800 rounded-round  " onclick="Add()"><b><i class="icon icon-add"></i></b>Add New</button></div>
+    </div>
+
+    <hr />
+    <div class="card" style="border-radius:15px">
+        <div class="">
+            <div class="table-responsive" style="border-radius:15px">
+                <table class="table table-hover table-sm ">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th >#</th>
+                            <th >ScreenCategory Name</th>
+                            <th >Icon</th>
+                            <th >Updated By/Date</th>
+                            <th  class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body -->
+                    <tbody id="tablebody">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!-- Pagination -->
+    <div id="pagination"></div>
+</div>
+
+<div id="DataEditFormModalBody" class="modal fade" tabindex="-1" ScreenCategory="dialog" aria-labelledby="myModal-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="EditFormModalBody">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+        var CurrentPage = @Html.Raw(Json.Encode(Model.CurrentPage));
+        var TotalCount = @Html.Raw(Json.Encode(Model.TotalPage));
+        var searchData = {
+            'ScreenCategoryID': @Html.Raw(Json.Encode(Model.ScreenCategoryID)),
+            'ScreenCategoryName': @Html.Raw(Json.Encode(Model.ScreenCategoryName)),
+            'TotalCount': @Html.Raw(Json.Encode(Model.TotalCount)),
+            'TotalPage': @Html.Raw(Json.Encode(Model.TotalPage)),
+            'CurrentPage': @Html.Raw(Json.Encode(Model.CurrentPage)),
+    }
+
+    $(document).ready(function () {
+
+        Pagination(CurrentPage, TotalCount);
+        showlist("#tablebody", searchData);
+        $("#ScreenCategoryName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetScreenCategoryName", "Common")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.ScreenCategoryName,
+                                value: item.ScreenCategoryName,
+                                id: item.ID
+                            };
+                        }));
+                    }
+
+                })
+            },
+            select: function (event, ui) {
+                $("#ScreenCategoryID").val(ui.item.id);
+            },
+            messages: {
+                noResults: "",
+                results: function (count) {
+                    return count + (count > 1 ? ' results' : ' result ') + ' found';
+                }
+            }
+        });
+    });
+
+    function Edit(GUID) {
+
+        BindEditForm(GUID, "Edit");
+    }
+    function Add() {
+
+        BindEditForm("","Add");
+    }
+    function showlist(div, passdata) {
+        var data = JSON.stringify(passdata);
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("ScreenCategoryListPartial", "ScreenCategory")',
+            contentType: 'application/json; charset=utf-8',
+            data: { getpassdata: data},
+            beforesend: function () {
+                $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+                },
+            success: function (myData) {
+                 $(div).empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+    }
+    function Pagination(Page, Count) {
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("Pagination", "Common")',
+            data: { Page: Page, Count: Count},
+            //beforeSend: function () {
+            //    $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+            //},
+            success: function (myData) {
+                $("#pagination").empty().append(myData);
+            },
+            complete: function () {
+            }
+        });
+    }
+    function GetTotalPage() {
+        var data = JSON.stringify(passdata);
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("GetTotalPage", "ScreenCategory")',
+            data: { getpassdata: data},
+            success: function (myData) {
+                              searchData.TotalPage = myData;
+            },
+            complete: function () {
+            }
+        });
+    }
+    function Delete(GUID) {
+           swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this data!",
+               type: "warning",
+               icon: "warning",
+               buttons: true,
+               dangerMode: true,})
+                .then((willDelete) => {
+                    if (willDelete) {
+                       $.ajax({
+                        cache: false,
+                        url: '@Url.Action("DeleteScreenCategory", "ScreenCategory")',
+                        contentType: 'application/json; charset=utf-8',
+                        data: { GUID: GUID},
+
+                        success: function (myData) {
+                            if (myData == "Success") {
+
+                                swal("Poof! Your data has been deleted!", {
+                                icon: "success",});
+                                Pagination(CurrentPage, TotalCount);
+                                showlist("#tablebody", searchData);
+                            }
+                            else {
+                                swal("", "Oops! Process Fail !!", "fail");
+                            }
+                         }
+
+                     });
+
+                    } else {
+                        swal("Your data is safe!");
+                            }
+                });
+    }
+    function pageFunction(current) {
+        searchData.CurrentPage = current;
+        Pagination(current, TotalCount);
+        showlist("#tablebody", searchData);
+    }
+    function BindEditForm(GUID,Type) {
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("EditScreenCategoryForm", "ScreenCategory")',
+                data: { GUID: GUID},
+                beforeSend: function () {
+                },
+                success: function (Data) {
+                    $("#EditFormModalBody").empty().append(Data);
+                },
+                complete: function () {
+                    $("#DataEditFormModalBody").modal('show');
+                    $('#EditScreenCategory').submit(function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            cache: false,
+                            url: $(this).attr('action'),
+                            data: $(this).serialize(),
+                            type: "POST",
+                            beforeSend: function () {
+                                $('#savebtn').empty().append('<span class="spinner icon-spinner4"></span> Saving...');
+                                $('#savebtn').prop("disabled", true);
+                            },
+                            success: function (myData) {
+                                if (myData == "Success") {
+                                    if (Type == "Add") {
+                                        swal("", "Successfully Saved!", "success");
+                                    }
+                                    else {
+                                        swal("", "Successfully Edited !", "success");
+                                    }
+
+                                }
+                                else {
+                                    swal("", "Oops! Process Fail !!", "fail");
+                                }
+                                $("#DataEditFormModalBody").modal('hide');
+                                showlist("#tablebody", searchData);
+                            },
+                            complete: function () {
+                            }
+                        });
+                    });
+                }
+            });
+    }
+</script>

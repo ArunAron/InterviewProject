@@ -1,0 +1,38 @@
+﻿@model  IEnumerable<DataCore.Models.Warehouse>
+
+<div class="row">
+    @{
+
+        foreach (var data in @Model)
+        {
+            <div class="col-lg-3">
+                <div class="card card-body " style="border-radius:20px;">
+                    <div class="media ">
+                        <div class="media-body">
+
+                            <div class="ml-1 mr-3 row">
+
+                                <img src="~/assets/images/warehouse2.png" style="width: 35px; height: 35px;" class="img-circle mr-3" alt="">
+                                <h5 class="media-title font-weight-bolder">@data.WarehouseName</h5>
+                            </div>
+                            <div class="media-title mt-2 ">
+                                <p class=""><span class="font-weight-bolder">Description :</span><span> @data.Description</span> </p>
+                                @*<p class="text-muted">Desc - @data.Description</p>*@
+                                <p class=""><span class="font-weight-bolder">Warehouse Code :</span><span> @data.WarehouseCode</span> </p>
+                                <hr class="mt-1 pt-1 mb-1 pb-1" />
+                                <div class="text-right">
+                                    <button data-popup="tooltip" title="Update" data-container="body" class="btn btn-sm  btn-icon rounded-round btn-outline-info" onclick="Edit('@data.GUID')"><i class="icon icon-pencil7"></i></button>
+                                    <button data-popup="tooltip" title="Delete" data-container="body" class="btn btn-sm  btn-icon rounded-round btn-outline-danger" onclick="Delete('@data.GUID')"><i class="icon-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+        }
+    }
+</div>

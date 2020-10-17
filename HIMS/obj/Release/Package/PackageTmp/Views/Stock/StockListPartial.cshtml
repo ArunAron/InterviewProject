@@ -1,0 +1,42 @@
+﻿@model  IEnumerable<DataCore.Models.Stock>
+
+@{
+    var count = 1;
+    var CP = Convert.ToInt32(ViewBag.CurrentPagePartial);
+    CP = CP - 1;
+    count = (CP * DataCore.CommonClass.PageSize) + 1;
+
+    foreach (var data in @Model)
+    {
+    <tr>
+        <td class="text-right">
+            <div class="list-icons">
+                <button data-popup="tooltip" title="Adjustment" class="btn btn-sm rounded-round btn-outline bg-teal-600 text-teal-600 border-teal-600 btn-icon " onclick="Edit('@data.GUID')"><b><i class="icon-database-diff"></i></b></button>
+                <button data-popup="tooltip" title="Activity" class="btn btn-sm rounded-round btn-icon  btn-outline bg-indigo text-indigo border-indigo" onclick="Movement('@data.GUID')"><b><i class="icon-stats-bars3"></i></b></button>
+            </div>
+        </td>
+        <td class="text-center">@count</td>
+        <td>
+            <div class="badge font-size-base"><i class="icon-home2 font-size-sm mr-1"></i> @data.WarehouseName</div>
+
+        </td>
+        <td>@data.MaterialName</td>
+        <td>@data.BatchNumber</td>
+        <td>
+            <span class="font-size-base badge ">@data.Quantity <span class="font-weight-bold">@data.UOMType</span></span>
+        </td>
+        <td> <span class="badge badge-flat border-grey text-grey-600"> @data.Description</span></td>
+        <td><span class="badge font-size-base"> @Convert.ToDateTime(data.ExpiryDate).ToString("dd/MM/yyyy") </span></td>
+        <td>
+            <span class="font-weight-bold"> @data.UpDatedByName</span>
+            <div class="text-muted font-size-sm">
+                <span class="badge badge-mark border-blue mr-1"></span>
+                @data.UpDatedDate
+            </div>
+        </td>
+
+    </tr>
+        count++;
+    }
+}
+

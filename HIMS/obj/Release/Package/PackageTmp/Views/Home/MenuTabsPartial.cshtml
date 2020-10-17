@@ -1,0 +1,33 @@
+﻿
+@model  IEnumerable<DataCore.Models.ScreenCategory>
+
+
+@{
+    foreach (var data in @Model)
+    {
+        <li class="nav-item nav-item-submenu" id="@data.GUID">
+            @if (data.ScreenList.Count > 0)
+            {
+                <a href="#" class="nav-link" ><i class="@data.Icon"></i> <span>@data.ScreenCategoryName</span></a>
+                <ul class="nav nav-group-sub" data-submenu-title="@data.ScreenCategoryName">
+                    @foreach (var screen in data.ScreenList)
+                    {
+                        <li class="nav-item" ><a class="nav-link" id="@screen.ScreenUniqueName" href="@Url.Action(@screen.Action,@screen.Controller)"> @screen.ScreenName</a></li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+}
+<script>
+    
+    @*var WarehouseGUID = @Html.Raw(Json.Encode(ViewBag.WarehouseGUID));*@
+    var WarehouseName = @Html.Raw(Json.Encode(ViewBag.WarehouseName));
+    var UserFullName = @Html.Raw(Json.Encode(ViewBag.UserFullName));
+    $(document).ready(function () {
+        //$("#LoggedInWarehouseGUID").empty().append(WarehouseGUID);
+        $("#LoggedInWarehouseName").empty().append(WarehouseName);
+        $("#LoggedInUserName").empty().append(UserFullName);
+     });
+</script>
+

@@ -1,0 +1,275 @@
+﻿@model DataCore.Models.Material
+<!-- Core JS files -->
+
+@{ Layout = null; }
+<div class="modal-header bg-slate-800" style="border-radius:0">
+    <h4 class="modal-title font-weight-bold">Unit of Measurement Mapping</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<div class="modal-body">
+    <div class="col-lg-12 ">
+        <div class="row">
+            <div class=" col-md-3"><label class="font-weight-bold text-size-large">Material Name</label> : @Model.MaterialName </div>
+            <div class=" col-md-6"><label class="font-weight-bold text-size-large">UMO Conversion :</label> <span id="formula">@Model.UOMDescription</span> </div>
+
+            <div class=" col-md-3 text-right"></div>
+        </div>
+        <br />
+        <!-- Search Fliters -->
+        <fieldset>
+            <legend class="text-semibold">
+                <i class="icon-pen-plus position-left"></i>
+                Input Field
+            </legend>
+            <div class="row">
+                <div class=" col-lg-3">
+                    <label class="font-weight-bold">Level</label>
+                    <input type="number" id="Level" name="Level" class="form-control" />
+                    <span id="errorLevel"  hidden class=" font-weight-bold text-size-mini text-danger ml-10">Please Fill Level!</span>
+                    <input type="hidden" id="UMOGUID" name="UMOGUID" class="form-control" />
+                </div>
+                <div class=" col-lg-3">
+                    <label class="font-weight-bold">Quantity</label>
+                    <input type="number" id="Quantity" name="Quantity" class="form-control" />
+                    <span id="errorQuantity" hidden class=" font-weight-bold text-size-mini text-danger ml-10">Please Fill Quantity!</span>
+                </div>
+                <div class=" col-lg-3">
+                    <label class="font-weight-bold">UOM Type</label>
+                    <select id="Type" name="Type" class=" form-control">
+                        @if (ViewBag.UOMTypeList != null)
+                        {
+                            foreach (var data in ViewBag.UOMTypeList)
+                            {
+
+                                <option value="@data.Type">@data.Type</option>
+
+                            }
+                        }
+                    </select>
+                    <span id="errorType" hidden class=" font-weight-bold text-size-mini text-danger ml-10">Please Choose Type!</span>
+                </div>
+                <div class=" col-md-3 text-right mt-4">
+                    <label class="font-weight-bold"></label>
+                    <button id="umoaction" class="btn btn-success mt-10  rounded-round " onclick="AddUOM()"> Add UOM </button>
+                    <input type="button" id="uomcancle" name="uomcancle" value="Cancle" class="btn rounded-round btn-danger mt-10 hidden" />
+                </div>
+
+            </div>
+        </fieldset>
+
+        <hr />
+        <div class="panel panel-flat mt-10 " style="border-radius:10px">
+            <div class="table-responsive" style="border-radius:10px">
+                <table class="table datatable-button-print-basic">
+                    <thead class="bg-slate-800">
+                        <tr>
+
+                            <th>Level</th>
+                            <th>Quantity</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            @*<th>Created By/Date</th>*@
+                            <th>Updated By/Date</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body -->
+                    <tbody id="uomtablebody">
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- Pagination -->
+
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+</div>
+
+
+<div id="DataEditFormModalBody" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="EditFormModalBody">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+        var MaterialGUID = @Html.Raw(Json.Encode(Model.GUID));
+
+    var saveData = {
+            'GUID': "",
+            'MaterialGUID': @Html.Raw(Json.Encode(Model.GUID)),
+            'MaterialCode': @Html.Raw(Json.Encode(Model.MaterialCode)),
+            'Level': "",
+            'Description': "",
+            'Quantity': "",
+            'Type': "",
+    }
+
+    $(document).ready(function () {
+        showlistUOM("#uomtablebody", MaterialGUID);
+    });
+
+    function editClick(guid,level, quantity, type) {
+
+         $('#UMOGUID').val(guid);
+         $('#Level').val(level);
+         $('#Quantity').val(quantity);
+
+
+
+
+         var ddl = document.getElementById('Type');
+        var opts = ddl.options.length;
+        for (var i = 0; i < opts; i++) {
+            if (ddl.options[i].value == type) {
+                ddl.options[i].selected = true;
+                break;
+            }
+        }
+
+        $('#umoaction').text("Update UOM");
+        $('#umoaction').removeClass("btn-success");
+        $('#umoaction').addClass("btn-primary");
+        $('#uomcancle').removeClass("hidden");
+    }
+
+    function clear() {
+        $('#UMOGUID').val('');
+        $('#Level').val('');
+        $('#Quantity').val('');
+        document.getElementById('Type').selectedIndex = 0;
+        $('#umoaction').text("Add UOM");
+        $('#umoaction').removeClass("btn-outline-primary");
+        $('#umoaction').addClass("btn-success");
+        $('#uomcancle').addClass("hidden");
+    }
+
+    $("#uomcancle").click(function () {
+        clear();
+    });
+
+    function AddUOM() {
+        saveData.Level =  $('#Level').val();
+        saveData.Quantity =  $('#Quantity').val();
+        saveData.Type = $('#Type').val();
+        saveData.GUID = $('#UMOGUID').val();
+
+        var errorexit = 0;
+
+
+        if (saveData.Level == "") {
+            $('#Level').addClass("border-danger");
+            errorexit++;
+        }
+        if (saveData.Quantity == "") {
+            $('#Quantity').addClass("border-danger");
+            errorexit++;
+        }
+        if (saveData.Type == "Choose Type") {
+            $('#Type').addClass("border-danger");
+            errorexit++;
+        }
+        if (errorexit == 0) {
+            $('#Type').removeClass("border-danger");
+            $('#Quantity').removeClass("border-danger");
+            $('#Level').removeClass("border-danger");
+            var data = JSON.stringify(saveData);
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("EditUMO", "UOM")',
+            contentType: 'application/json; charset=utf-8',
+            data: { getpassdata: data},
+            beforesend: function () {
+                },
+                success: function (myData) {
+                    if (myData != "Fail") {
+                        $("#formula").empty().append(myData);
+                       swal("", "Successfully Done!", "success");
+                        showlistUOM("#uomtablebody", MaterialGUID);
+                        Pagination(CurrentPage, TotalCount);
+                        showlist("#tablebody", searchData);
+                        clear();
+                    }
+                    else {
+                        swal("", "Oops! Process Fail !!", "fail");
+                    }
+                },
+            complete: function () {
+                }
+            });
+
+        }
+    }
+
+    $("#Level").focus(function () {
+        $('#Level').removeClass("border-danger");
+    });
+    $("#Quantity").focus(function () {
+        $('#Quantity').removeClass("border-danger");
+    });
+    $('#Type').focus(function () {
+        $('#Type').removeClass("border-danger");
+    });
+
+    function showlistUOM(div, passdata) {
+
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("UOMListPartial", "UOM")',
+            contentType: 'application/json; charset=utf-8',
+                data: { getpassdata: passdata},
+            beforesend: function () {
+                $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+                },
+            success: function (myData) {
+                 $(div).empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+    }
+
+    function DeleteUOM(GUID) {
+           swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this data!",
+               type: "warning",
+               icon: "warning",
+               buttons: true,
+               dangerMode: true,})
+                .then((willDelete) => {
+                    if (willDelete) {
+                       $.ajax({
+                        cache: false,
+                        url: '@Url.Action("DeleteUOM", "UOM")',
+                        contentType: 'application/json; charset=utf-8',
+                        data: { GUID: GUID},
+
+                        success: function (myData) {
+                            if (myData != "Fail") {
+                                $("#formula").empty().append(myData);
+                                swal("Poof! Your data has been deleted!", {
+                                icon: "success",});
+                                showlistUOM("#uomtablebody", MaterialGUID);
+                                Pagination(CurrentPage, TotalCount);
+                                showlist("#tablebody", searchData);
+                            }
+                            else {
+                                swal("", "Oops! Process Fail !!", "fail");
+                            }
+                         }
+
+                     });
+
+                    } else {
+                        swal("Your data is safe!");
+                            }
+                });
+    }
+</script>

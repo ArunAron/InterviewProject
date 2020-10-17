@@ -1,0 +1,89 @@
+﻿@model  IEnumerable<DataCore.Models.PurchaseOrder>
+
+@{
+    var count = 1;
+    var CP = Convert.ToInt32(ViewBag.CurrentPagePartial);
+    CP = CP - 1;
+    count = (CP * DataCore.CommonClass.PageSize) + 1;
+
+    foreach (var data in @Model)
+    {
+        <tr>
+            <td class="text-center">
+                @if (data.ApprovalStatus == "PENDING")
+                {
+                    <div class="list-icons">
+                        <button data-popup="tooltip" title="Approve" class="btn btn-sm btn-icon btn-outline-success rounded-round  " onclick="Approve('@data.GUID')"><b><i class="icon icon-checkmark4 "></i></b> </button>
+                        <button data-popup="tooltip" title="Reject" class="btn  btn-sm btn-icon  rounded-round  btn-outline-danger " onclick="Reject('@data.GUID')"><b><i class="icon icon-cross2 "></i></b> </button>
+                        <a data-popup="tooltip" title="Update" class="btn btn-sm btn-icon  rounded-round  btn-outline-info " href="@Url.Action("PurchaseOrderEdit", "PurchaseOrder", new {GUID = data.GUID})"><b><i class="icon icon-pencil7 "></i></b> </a>
+                    </div>
+                }
+                else if (data.ApprovalStatus == "APPROVED")
+                {
+                    <div class="list-icons">
+                        <button data-popup="tooltip" title="GRN" class="btn  btn-sm btn-icon  rounded-round  btn-outline-primary " onclick="GRN('@data.GUID')"><b><i class="icon-file-download "></i></b> GRN </button>
+                    </div>
+                }
+
+                @*<button class="btn btn-sm btn-icon btn-flat rounded-round  bg-indigo mt-10" onclick="Price('@data.GUID')"><b><i class="icon-price-tags"></i></b></button>*@
+            </td>
+
+            <td>
+                @count
+            </td>
+            <td>
+                <div class="list-icons">
+                    <span class="badge font-size-base"> @data.PurchaseOrderNo</span>
+                    <button data-popup="tooltip" title="Detail" class="btn btn-sm btn-icon  rounded-round  btn-outline-primary" onclick="PurchaseOrderDetail('@data.GUID')"><i class="icon icon-file-text2"></i></button>
+                </div>
+                
+            </td>
+            <td>@data.SupplierName</td>
+            <td> <span class="badge font-size-base"> @data.PurchaseOrderDate</span> </td>
+            <td>
+                @if (data.ApprovalStatus == "PENDING")
+                {
+                    <span class="badge badge-secondary">@data.ApprovalStatus</span>
+                }
+                else if (data.ApprovalStatus == "APPROVED")
+                {
+                    <span class="badge badge-success">@data.ApprovalStatus</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">@data.ApprovalStatus</span>
+                }
+            </td>
+            <td>
+                @if (data.ApprovalStatus == "REJECTED")
+                {
+                    <span class="font-weight-bold">@data.RejectedByName</span>
+                    <div class="text-muted font-size-sm badge">
+                        <span class="badge badge-mark border-danger mr-1"></span>
+                        @data.RejectedDate
+                    </div>
+
+                }
+                else if (data.ApprovalStatus == "APPROVED")
+                {
+                    <span class="font-weight-bold">@data.ApprovedByName</span>
+                    <div class="text-muted font-size-sm badge">
+                        <span class="badge badge-mark border-green mr-1"></span>
+                        @data.ApprovedDate
+                    </div>
+                }
+            </td>
+            <td>
+                <span class="font-weight-bold">@data.UpDatedByName</span>
+                <div class="text-muted badge font-size-sm">
+                    <span class="badge badge-mark border-blue mr-1"></span>
+                    @data.UpDatedDate
+                </div>
+            </td>
+
+
+        </tr>
+        count++;
+    }
+}
+

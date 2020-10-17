@@ -1,0 +1,59 @@
+﻿@model  IEnumerable<DataCore.Models.ScreenCategory>
+
+@{
+
+
+    foreach (var data in @Model)
+    {
+
+        <fieldset class="">
+            <legend class="h5 font-weight-bold">
+                <i class="@data.Icon"></i>
+                @data.ScreenCategoryName
+            </legend>
+            <div class=" card" style="border-radius:10px">
+                <div class="table-responsive" style="border-radius:10px">
+                    <table class="table table-sm">
+                        <thead class="bg-slate-800">
+                            <tr>
+                                <th width="10%" class="text-center">Actions</th>
+                                <th width="5%">#</th>
+                                <th width="20%">Screen Name</th>
+                                <th width="20%">ScreenUniqueName</th>
+                                <th width="20%">Controller / Action</th>
+
+                            </tr>
+                        </thead>
+                        @{
+                            var count = 1;
+                            var CP = Convert.ToInt32(1);
+                            CP = CP - 1;
+                            count = (CP * DataCore.CommonClass.PageSize) + 1;
+                            foreach (var screen in data.ScreenList)
+                            {
+
+                                <tr>
+                                    <td width="10%" class="text-center">
+                                        <div class="list-icons">
+                                            <button data-popup="tooltip" title="Update" class="btn btn-sm btn-icon  rounded-round  btn-outline-info " onclick="Edit('@screen.GUID')"><b><i class="icon icon-pencil7 "></i></b> </button>
+                                            <button data-popup="tooltip" title="Delete" class="btn  btn-sm btn-icon  rounded-round  btn-outline-danger " onclick="Delete('@screen.GUID')"><b><i class="icon-trash "></i></b> </button>
+                                        </div>
+                                    </td>
+                                    <td width="5%">@count</td>
+                                    <td width="20%">@screen.ScreenName </td>
+                                    <td width="20%">@screen.ScreenUniqueName</td>
+                                    <td width="20%"> <span class="font-weight-bold">@screen.Controller</span> / <span class="font-weight-bold">@screen.Action</span> </td>
+
+                                </tr>
+                                count++;
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+
+    }
+}
+

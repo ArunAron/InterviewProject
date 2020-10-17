@@ -1,0 +1,102 @@
+﻿
+<div class="col-lg-12">
+    <div class="row">
+        <div class=" col-md-3"><h4 class="panel-title font-weight-bold">Role Screen Mapping</h4></div>
+        <div class=" col-md-3"></div>
+        <div class=" col-md-3"></div>
+        <div class=" col-md-3 text-right"></div>
+    </div>
+    <fieldset>
+        <legend class="text-semibold">
+            <i class="icon-search4 position-left"></i>
+            Search Field
+        </legend>
+        <!-- Search Fliters -->
+        <div class=" row ">
+
+            <div class=" col-lg-3">
+                <label class="font-weight-bold">Roles</label>
+                <select id="Role" name="Role" class=" form-control">
+                    @if (ViewBag.RoleList != null)
+                    {
+                        foreach (var data in ViewBag.RoleList)
+                        {
+                            <option value="@data.GUID">@data.RoleName</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class=" col-lg-3 text-left"><button class="btn bg-teal-700  rounded-round " style="margin-top:25px" type="button" onclick="showlist()"> Search </button></div>
+            <div class=" col-lg-3 text-right"></div>
+            <div class=" col-lg-3 text-right"></div>
+
+        </div>
+    </fieldset>
+    <hr />
+    <div class=" mt-2 " style="border-radius:10px">
+        <div id="showlistdata" class=" row col-lg-12" style="border-radius:10px">
+
+
+        </div>
+        <!-- Pagination -->
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="~/assets/js/core/app.js"></script>
+
+
+
+<script>
+
+
+    function showlist() {
+        var RoleGUID = $('#Role').val();
+
+        if (RoleGUID == "All") {
+
+        }
+        else {
+             $.ajax({
+            cache: false,
+            url: '@Url.Action("RoleScreenMapListPartial", "RoleScreenMap")',
+            contentType: 'application/json; charset=utf-8',
+                 data: { RoleGUID: RoleGUID},
+            success: function (myData) {
+                $("#showlistdata").empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+        }
+
+    }
+
+
+
+    function Access(ScreenGUID, ID) {
+
+        var Access = 0;
+        if ($("#" + ID).is(":checked")) {
+            Access = 1;
+        }
+
+        var RoleGUID = $('#Role').val();
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("GiveAndTakeAccess", "RoleScreenMap")',
+
+                data: { ScreenGUID: ScreenGUID, RoleGUID: RoleGUID, Access: Access},
+                beforeSend: function () {
+                },
+                success: function (Data) {
+                    showlist();
+                },
+                complete: function () {
+
+                }
+            });
+    }
+
+</script>

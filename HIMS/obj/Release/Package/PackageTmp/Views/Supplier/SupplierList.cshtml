@@ -1,0 +1,151 @@
+﻿
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class=" col-md-3"><h4 class="panel-title font-weight-bold">Supplier List</h4></div>
+        <div class=" col-md-5"></div>
+        <div class=" col-md-2 text-right"><button class="btn btn-primary  rounded-round " onclick="Refresh()"> <i class="icon-rotate-cw3"></i></button></div>
+        <div class=" col-md-2 text-right"><button class="btn btn-success  rounded-round " onclick="Add()"> Add Supplier </button></div>
+    </div>
+
+    <hr />
+    <div class=" mt-10 ">
+        <div>
+
+            <div id="tablebody">
+            </div>
+
+        </div>
+        <!-- Pagination -->
+        <div id="pagination"></div>
+    </div>
+</div>
+
+<div id="DataEditFormModalBody" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="border-radius:15px;">
+        <div class="modal-content">
+            <div id="EditFormModalBody">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        showlist("#tablebody");
+    });
+
+    function Edit(GUID) {
+
+        BindEditForm(GUID, "Edit");
+    }
+    function Add() {
+
+        BindEditForm("","Add");
+    }
+    function showlist(div) {
+
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("SupplierListPartial", "Supplier")',
+            contentType: 'application/json; charset=utf-8',
+            data: { },
+            beforesend: function () {
+                $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+                },
+            success: function (myData) {
+                 $(div).empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+    }
+
+
+    function Delete(GUID) {
+           swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this data!",
+               type: "warning",
+               icon: "warning",
+               buttons: true,
+               dangerMode: true,})
+                .then((willDelete) => {
+                    if (willDelete) {
+                       $.ajax({
+                        cache: false,
+                        url: '@Url.Action("DeleteSupplier", "Supplier")',
+                        contentType: 'application/json; charset=utf-8',
+                        data: { GUID: GUID},
+
+                        success: function (myData) {
+                            if (myData == "Success") {
+
+                                swal("Poof! Your data has been deleted!", {
+                                icon: "success",});
+                                showlist("#tablebody");
+                            }
+                            else {
+                                swal("", "Oops! Process Fail !!", "fail");
+                            }
+                         }
+
+                     });
+
+                    } else {
+                        swal("Your data is safe!");
+                            }
+                });
+    }
+    function BindEditForm(GUID,Type) {
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("EditSupplierForm", "Supplier")',
+                data: { GUID: GUID},
+                beforeSend: function () {
+                },
+                success: function (Data) {
+                    $("#EditFormModalBody").empty().append(Data);
+                },
+                complete: function () {
+                    $("#DataEditFormModalBody").modal('show');
+                    $('#EditSupplier').submit(function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            cache: false,
+                            url: $(this).attr('action'),
+                            data: $(this).serialize(),
+                            type: "POST",
+                            beforeSend: function () {
+                                $('#savebtn').empty().append('<span class="spinner icon-spinner4"></span> Saving...');
+                                $('#savebtn').prop("disabled", true);
+                            },
+                            success: function (myData) {
+                                if (myData == "Success") {
+                                    if (Type == "Add") {
+                                        swal("", "Successfully Saved!", "success");
+                                    }
+                                    else {
+                                        swal("", "Successfully Edited !", "success");
+                                    }
+
+                                }
+                                else {
+                                    swal("", "Oops! Process Fail !!", "fail");
+                                }
+                                $("#DataEditFormModalBody").modal('hide');
+                                showlist("#tablebody");
+                                Pagination(CurrentPage, TotalCount);
+                            },
+                            complete: function () {
+                            }
+                        });
+                    });
+                }
+            });
+    }
+</script>

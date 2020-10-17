@@ -1,0 +1,69 @@
+﻿@model DataCore.Models.PurchaseOrder
+<!-- Core JS files -->
+
+@{ Layout = null; }
+<div class="modal-header bg-slate-800" style="border-radius:0">
+    <h4 class="modal-title font-weight-bold">Purchase Order Detail</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<div class="modal-body">
+    <div class="col-lg-12 ">
+        <div class="row h-75 ">
+            <div class=" col-lg-3 mt-1"><label class="font-weight-bold text-size-large">Warehouse</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.WarehouseName" /> </div>
+            <div class=" col-lg-3 mt-1"><label class="font-weight-bold text-size-large">Puchase Order No</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.PurchaseOrderNo" /> </div>
+            <div class=" col-lg-3 mt-1"><label class="font-weight-bold text-size-large">Supplier</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.SupplierName" /></div>
+            <div class=" col-lg-3 mt-1"><label class="font-weight-bold text-size-large">Company</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.CompanyLocation" /> </div>
+            <div class=" col-lg-3 mt-1"><label class="font-weight-bold text-size-large">Puchase Order Date</label> :<input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.PurchaseOrderDate" /></div>
+            <div class=" col-lg-3 mt-1"><label class="font-weight-bold text-size-large">Farmer Code</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.FarmerCode" /> </div>
+            <div class=" col-lg-3 mt-1"><label class="font-weight-bold text-size-large">Vehicle Detail</label> : <input class=" form-control font-weight-bold" style="background-color:gainsboro" readonly value=" @Model.VehicleDetails" /></div>
+        </div>
+       <br />
+        <div class="card card-body mt-10 bg-light">
+            <div class="table-responsive">
+                <table class="table table-framed table-sm">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th>Material</th>
+                            <th>Quantity</th>
+                            <th>Weight/Quantity</th>
+                            <th>Total Weight</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                            <th>Packing Detail</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body -->
+                    <tbody>
+                        @foreach (var data in ViewBag.PurchaseOrderDetailList)
+                        {
+                            <tr>
+                                <td>@data.MaterialName</td>
+                                <td>@data.Quantity <span class="font-weight-bold"> @data.QuantityUOMType </span> </td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(data.WeightPerQuantity))
+                                    {
+                                        @data.WeightPerQuantity <span class="font-weight-bold"> @data.WeightPerQuantityUOMType </span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(data.TotalWeight))
+                                    {
+                                        @data.TotalWeight <span class="font-weight-bold">@data.TotalWeightUOMType </span>
+                                    }
+                                </td>
+                                <td>@data.Rate</td>
+                                <td>@data.Amount</td>
+                                <td>@data.PackingDetail</td>
+                                <td>@data.Remark</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- Pagination -->
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿
+<div class="col-md-12 mt-10">
+    <div class="">
+        <ul class="pagination pagination-pager pagination-rounded align-self-center">
+            @{
+                var Page = ViewBag.Page;
+                var count = ViewBag.Count;
+                int pagingLimit = 5;
+                int looplimit = count; int loopstart = 0;
+                if (Page >= pagingLimit)
+                { loopstart = Page - pagingLimit; loopstart++; }
+                if (count > pagingLimit)
+                { looplimit = pagingLimit + loopstart; }
+                loopstart++;
+                if (looplimit > count)
+                { looplimit = count; loopstart--; }
+              
+                if (Page == 1 || count == 0)
+                {
+                    <li class="page-item disabled"><a href="#"class="page-link " >  First</a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a href="#" class="page-link" onclick="return pageFunction(1)"> First</a></li>
+                    
+                }
+                for (int p = loopstart; p <= looplimit; p++)
+                {
+                    if (p == Page)
+                    {
+                        <li  class="page-item active"><a href="#" class="page-link" onclick="return pageFunction(@p)">@p</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a href="#" class="page-link" onclick="return pageFunction(@p)">@p</a></li>
+
+                    }
+                }
+                if (Page == count || count == 0)
+                {
+                    <li class="page-item disabled"><a href="#" class="page-link" >Last </a></li>
+                   
+                }
+                else
+                {
+                    <li class="page-item"><a href="#" class="page-link" onclick="return pageFunction(@count)"><span aria-hidden="true">Last </span></a></li>
+
+                }
+
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model  IEnumerable<DataCore.Models.Material>
+
+@{
+    var count = 1;
+    var CP = Convert.ToInt32(ViewBag.CurrentPagePartial);
+    CP = CP - 1;
+    count = (CP * DataCore.CommonClass.PageSize) + 1;
+
+    foreach (var data in @Model)
+    {
+        <tr>
+            <td class="text-center">
+                <div class="list-icons">
+                    <button data-popup="tooltip" title="Update" class="btn btn-sm btn-icon  rounded-round  btn-outline-info " onclick="Edit('@data.GUID')"><b><i class="icon icon-pencil7 "></i></b> </button>
+                    @*<button data-popup="tooltip" title="UOM" class="btn btn-sm btn-icon rounded-round bg-teal-800 " onclick="BindUMO('@data.GUID')"><b><i class="icon-tree7 "></i></b> </button>*@
+                    <button data-popup="tooltip" title="Delete" class="btn  btn-sm btn-icon  rounded-round  btn-outline-danger " onclick="Delete('@data.GUID')"><b><i class="icon-trash "></i></b> </button>
+                </div>
+            </td>
+            <td>@count</td>
+            <td>@data.MaterialName <span class="font-weight-bold"> (@data.ShortCut) </span> </td>
+            <td>@data.MaterialTypeName</td>
+            <td>@data.Quality</td>
+            <td>@data.MaterialCode</td>
+            @*<td>@data.UOMType</td>
+                <td>@data.UOMDescription</td>*@
+            @*<td>@data.CreatedByName<br />@data.CreatedDate</td>*@
+            <td>
+                <span class="font-weight-bold">@data.UpDatedByName</span>
+                <div class="text-muted font-size-sm">
+                    <span class="badge badge-mark border-blue mr-1"></span>
+                    @data.UpDatedDate
+                </div>
+            </td>
+        </tr>
+        count++;
+    }
+}
+

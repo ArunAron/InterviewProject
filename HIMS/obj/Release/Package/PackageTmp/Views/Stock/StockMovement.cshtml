@@ -1,0 +1,257 @@
+﻿@model DataCore.SearchModel.SM_StockMovement
+<!-- Core JS files -->
+
+
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class=" col-md-3"><h4 class="panel-title font-weight-bold">Stock Activity</h4></div>
+        <div class=" col-md-3"></div>
+        <div class=" col-md-3"></div>
+        <div class=" col-md-3 text-right"></div>
+    </div>
+
+    <fieldset>
+        <legend class="text-semibold">
+            <i class="icon-search4 position-left"></i>
+            Search Field
+        </legend>
+        <!-- Search Fliters -->
+
+        @using (Html.BeginForm("SearchStockMovement", "Stock", FormMethod.Post, new { enctype = "multipart/form-data", @name = "form-addnewUser" }))
+        {
+            <div class="  mt-10 col-12 row ">
+                <div class=" col-lg-3">
+                    <label class="font-weight-bold">Material Name</label>
+                    @Html.EditorFor(model => model.MaterialName, new { htmlAttributes = new { @class = "form-control", @id = "MaterialName", @autocomplete = "off" } })
+                    @Html.HiddenFor(model => model.MaterialGUID, new { htmlAttributes = new { @class = "form-control", @id = "MaterialGUID", @autocomplete = "off" } })
+                </div>
+                <div class=" col-lg-3">
+                    <label class="font-weight-bold">Batch Number</label>
+                    <select id="BatchNumber" name="BatchNumber" class=" form-control">
+                    </select>
+                </div>
+                <div class=" col-lg-3">
+                    <label class="font-weight-bold">Warehouse</label>
+                    <select id="Warehouse" name="Warehouse" class=" form-control">
+                        @if (ViewBag.WarehouseList != null)
+                        {
+                            foreach (var data in ViewBag.WarehouseList)
+                            {
+                                if (ViewBag.SelectedWarehouse == data.GUID)
+                                {
+                                    <option selected value="@data.GUID">@data.WarehouseName</option>
+                                }
+                                else
+                                {
+                                    <option value="@data.GUID">@data.WarehouseName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class=" col-lg-3 text-right"><button class="btn bg-teal-700  rounded-round mt-4" type="submit"> Search </button></div>
+            </div>
+        }
+
+    </fieldset>
+    <hr />
+    <div class="card mt-10 " style="border-radius:10px">
+        <div class="table-responsive" style="border-radius:10px">
+            <table class="table ">
+                <thead class="bg-slate-800">
+                    <tr>
+                        <th width="5%">#</th>
+                        @*<th width="10%">Warehouse</th>
+                            <th width="10%"> Name</th>*@
+                        <th width="10%">Batch No</th>
+                        <th width="10%">Type</th>
+                        <th width="10%" class="text-center">IN</th>
+                        <th width="10%" class="text-center">OUT</th>
+                        <th width="10%" class="text-center">Current Stock</th>
+                        <th width="10%">Description</th>
+                        <th width="15%">UP By/Date</th>
+                    </tr>
+                </thead>
+                <!-- Table Body -->
+                <tbody id="tablebody">
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <!-- Pagination -->
+    <div id="pagination"></div>
+</div>
+
+<div id="DataEditFormModalBody" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="EditFormModalBody">
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="uomList" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-slate-800" style="border-radius:0">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title font-weight-bold">Unit of Measurement Mapping</h4>
+            </div>
+            <hr />
+            <div class="modal-body" id="uomModal">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+        var CurrentPage = @Html.Raw(Json.Encode(Model.CurrentPage));
+        var TotalCount = @Html.Raw(Json.Encode(Model.TotalPage));
+    var searchData = {
+        'StockGUID': @Html.Raw(Json.Encode(Model.StockGUID)),
+        'BatchNumber': @Html.Raw(Json.Encode(Model.BatchNumber)),
+            'MaterialGUID': @Html.Raw(Json.Encode(Model.MaterialGUID)),
+            'WarehouseGUID': @Html.Raw(Json.Encode(Model.WarehouseGUID)),
+            'TotalCount': @Html.Raw(Json.Encode(Model.TotalCount)),
+            'TotalPage': @Html.Raw(Json.Encode(Model.TotalPage)),
+            'CurrentPage': @Html.Raw(Json.Encode(Model.CurrentPage)),
+    }
+
+    $(document).ready(function () {
+
+        $.ajax({
+                    url:'@Url.Action("GetBatchNumberByMaterialGUID", "Common")',
+                    type: 'Post',
+                    data: { Prefix: $('#MaterialGUID').val() },
+                    success: function (data) {
+                        var items = "";
+                        $.each(data, function (i, val) {
+                           
+                            if (searchData.BatchNumber == val.BatchNumber) {
+                                items += "<option value='" + val.BatchNumber + "' selected>" + val.BatchNumber + "</option>";
+                            }
+                            else {
+                                items += "<option value='" + val.BatchNumber + "'>" + val.BatchNumber + "</option>";
+                            }
+                            
+                        });
+                        $('#BatchNumber').empty().html(items);
+                    }
+                });
+
+        Pagination(CurrentPage, TotalCount);
+        showlist("#tablebody", searchData);
+        $("#MaterialName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetMaterialNameReturnGUID", "Common")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.MaterialName,
+                                value: item.MaterialName,
+                                id: item.GUID
+                            };
+                        }));
+                    }
+
+                })
+            },
+            select: function (event, ui) {
+                $("#MaterialGUID").val(ui.item.id);
+                $.ajax({
+                    url:'@Url.Action("GetBatchNumberByMaterialGUID", "Common")',
+                    type: 'Post',
+                    data: { Prefix: $('#MaterialGUID').val() },
+                    success: function (data) {
+                        var items = "";
+                        $.each(data, function (i, val) {
+                            items += "<option value='" + val.BatchNumber + "'>" + val.BatchNumber + "</option>";
+                        });
+                        $('#BatchNumber').empty().html(items);
+                    }
+                });
+            },
+            messages: {
+                noResults: "",
+                results: function (count) {
+                    return count + (count > 1 ? ' results' : ' result ') + ' found';
+                }
+            }
+        });
+    });
+
+    function Edit(GUID) {
+
+        BindEditForm(GUID, "Edit");
+    }
+    function Add() {
+
+        BindEditForm("","Add");
+    }
+    function showlist(div, passdata) {
+        var data = JSON.stringify(passdata);
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("StockMovementPartial", "Stock")',
+            contentType: 'application/json; charset=utf-8',
+            data: { getpassdata: data},
+            beforesend: function () {
+                $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+                },
+            success: function (myData) {
+                 $(div).empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+    }
+    function Pagination(Page, Count) {
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("Pagination", "Common")',
+            data: { Page: Page, Count: Count},
+            //beforeSend: function () {
+            //    $(div).empty().append('<div class="text-center"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+            //},
+            success: function (myData) {
+                $("#pagination").empty().append(myData);
+            },
+            complete: function () {
+            }
+        });
+    }
+    function GetTotalPage() {
+        var data = JSON.stringify(passdata);
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("GetTotalPage", "StockMovement")',
+            data: { getpassdata: data},
+            success: function (myData) {
+                              searchData.TotalPage = myData;
+            },
+            complete: function () {
+            }
+        });
+    }
+
+    function pageFunction(current) {
+        searchData.CurrentPage = current;
+        Pagination(current, TotalCount);
+        showlist("#tablebody", searchData);
+    }
+
+
+</script>

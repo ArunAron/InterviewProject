@@ -1,0 +1,433 @@
+﻿@model DataCore.Models.Stock
+
+@{
+    ViewBag.Title = "Opening Stock";
+}
+
+
+<div class="card card-body  col-lg-12" style="border-radius:10px">
+    <div class="row">
+        <div class=" col-md-3 mt-10"><h4 class="panel-title font-weight-bold mt-20">Opening Stock Form</h4></div>
+        <div class=" col-md-3"></div>
+        <div class=" col-md-3"></div>
+        <div class=" col-md-3">
+            <label class="font-weight-bold">Warehouse</label>
+            <input type="text" id="Warehouse" style="background-color:gainsboro" class=" form-control font-weight-bold" readonly name="Warehouse" value="@ViewBag.WarehouseName" />
+        </div>
+    </div>
+    <hr class="bg-blue-800" />
+    <!-- Search Fliters -->
+    <div class="  mt-10 col-12 row ">
+
+
+
+        @*<div class=" col-md-3">
+                <select id="Warehouse" name="Warehouse" class=" form-control">
+                    @if (ViewBag.WarehouseList != null)
+                    {
+                        foreach (var data in ViewBag.WarehouseList)
+                        {
+
+                            <option value="@data.GUID">@data.WarehouseName</option>
+
+                        }
+                    }
+                </select>
+
+            </div>
+            <div class=" col-md-3 " style="margin-top:30px">
+                <span id="errorWarehouse" class="hidden font-weight-bold text-size-mini text-danger "> Please Choose Warehouse!</span>
+            </div>
+            <div class=" col-md-3"></div>
+            <div class=" col-md-3 text-right"></div>*@
+    </div>
+
+    <div class="panel panel-flat mt-20 " style="border-radius:10px">
+        <div class="table-responsive" style="border-radius:10px">
+            <table id="tblOne" class="table datatable-button-print-basic">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="20%">Material</th>
+                        <th width="15%" class="text-center">UOM Type</th>
+                        <th width="15%" class="text-center">Quantity</th>
+                        <th width="15%">Batch Number</th>
+                        <th width="15%">ExpiryDate</th>
+                        <th width="15%">Actions</th>
+                    </tr>
+                </thead>
+                <!-- Table Body -->
+
+                <tbody>
+                    <tr id="tr1">
+                        <td>
+                            <span>1</span>
+                        </td>
+                        <td>
+
+                            <input type="text" style="min-width:100px" class="form-control readonly" id="MaterialName1" name="MaterialName1" autocomplete="off" onkeydown="SetAutoComplete('MaterialName1', '1')" ondblclick="doubleClick('MaterialName1', '1')" onfocus="onFocus('MaterialName1')" />
+                            <input type="hidden" class="form-control" id="MaterialGUID1" name="MaterialGUID1" autocomplete="off" />
+
+                        </td>
+                        <td>
+                            <select id="UOMType1" style="min-width:100px" name="UOMType1" class="form-control" onfocus="onFocus('UOMType1')">
+                            </select>
+
+                        </td>
+                        <td>
+
+                            <input type="number" style="min-width:100px" class="form-control" id="Quantity1" name="Quantity1" autocomplete="off" onfocus="onFocus('Quantity1')" min="1" oninput="validity.valid||(value='');" />
+
+
+                        </td>
+                        <td>
+
+                            <input type="text" style="min-width:100px" class="form-control" id="BatchNumber1" name="BatchNumber1" autocomplete="off" onfocus="onFocus('BatchNumber1')" onkeypress="return AvoidSpace(event)" />
+
+                        </td>
+                        <td>
+
+                            <input type="date"  class="form-control" id="ExpiryDate1" name="ExpiryDate1" autocomplete="off" onfocus="onFocus('ExpiryDate1')" />
+
+                        </td>
+
+                        <td>
+                            <button class="btn btn-sm btn-icon rounded-round  btn-success" id="Add1" onclick="AddNewRow(1)">
+                                <b><i class="icon-plus22"></i></b>
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    
+
+</div>
+<div class="text-right">
+    <button id="savebutton" class="btn btn-labeled btn-labeled-right rounded-round btn-lg bg-teal-800 btn-labeled"><b><i class="icon-floppy-disk"></i></b> Save</button>
+</div>
+
+<input type="hidden" id="totalCount" name="totalCount" value="1" />
+
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-slate-800" style="border-radius:0">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm Save</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to save !
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="btnSubmit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        //$('#dtBasicExample').DataTable({
+        //    searching: false,
+        //});
+        $('#fromdate').datepicker({
+            format: 'dd-mm-yyyy',
+        });
+
+        $('#savebutton').click(function () {
+            var warehouse = $('#Warehouse').val();
+            var errorexit = 0;
+            if (warehouse == "") {
+                $('#Warehouse').removeClass("hidden");
+                errorexit++;
+            }
+            errorexit += CheckValidationAllRow();
+
+            if (errorexit == 0) {
+                $('#Type').addClass("hidden");
+                $('#confirmModal').modal('show');
+            }
+        });
+
+
+    });
+
+    $('#Warehouse').focus(function () {
+        $('#Warehouse').addClass("hidden");
+    });
+
+    function SetAutoComplete(id, count) {
+
+        //var MaterialGUID = document.getElementById(id).value;
+        //var warehouseID = $('#Warehouse').val();
+        //var MaterialGUID = $('#MaterialGUID' + count).val();
+
+        $('#' + id).autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetMaterialNameReturnGUID", "Common")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.MaterialName,
+                                value: item.MaterialName,
+                                id: item.GUID
+                            };
+                        }));
+                    }
+
+                })
+            },
+            select: function (event, ui) {
+                var mtID = "MaterialGUID" + count;
+                var uomTypeID = "UOMType" + count;
+                $('#' + id).attr("readonly", true);
+                $('#' + mtID).val(ui.item.id);
+
+                $.ajax({
+                    url:'@Url.Action("GetUOMByMaterialGUID", "Common")',
+                    type: 'Post',
+                    data: { Prefix: $('#' + mtID).val() },
+                    success: function (data) {
+                        var items = "";
+                        $.each(data, function (i, val) {
+                            items += "<option value='" + val.Type + "'>" + val.Type + "</option>";
+                        });
+                        $('#' +uomTypeID).empty().html(items);
+                    }
+                });
+              },
+            messages: {
+                noResults: "",
+                results: function (count) {
+                    return count + (count > 1 ? ' results' : ' result ') + ' found';
+                }
+            }
+        });
+    }
+
+
+    function doubleClick(id, count) {
+
+        if ($("#" + id).attr("readonly")) {
+            $("#" + id).attr("readonly", false);
+        }
+    }
+
+    function onFocus(id) {
+        $("#" + id).removeClass("border-danger");
+    }
+
+    function AvoidSpace(event) {
+        var k = event ? event.which : window.event.keyCode;
+        if (k == 32) return false;
+    }
+
+    function checkValidationCurrentRow(count) {
+
+        var checkMaterialName = $('#MaterialName' + count).val();
+        var checkUOMType = $('#UOMType' + count).val();
+        var checkQuantity = $('#Quantity' + count).val();
+        var checkBatchNumber = $('#BatchNumber' + count).val();
+        var checkExpiryDate = $('#ExpiryDate' + count).val();
+
+        var errorexit = 0;
+
+        if (checkMaterialName == "") {
+            $('#MaterialName' + count).addClass("border-danger");
+            errorexit++;
+        }
+        if (checkUOMType == null) {
+            $('#UOMType' + count).addClass("border-danger");
+            errorexit++;
+        }
+        if (checkQuantity == "") {
+            $('#Quantity' + count).addClass("border-danger");
+            errorexit++;
+        }
+        if (checkBatchNumber == "") {
+            $('#BatchNumber' + count).addClass("border-danger");
+            errorexit++;
+        }
+        if (checkExpiryDate == "") {
+            $('#ExpiryDate' + count).addClass("border-danger");
+            errorexit++;
+        }
+        return errorexit;
+    }
+
+    function CheckValidationAllRow() {
+        var errorexit = 0;
+        var count = 1;
+        $('#tblOne > tbody > tr').each(function () {
+            var MaterialName = $(this).find('#MaterialName' + count).val();
+            var MaterialGUID = $(this).find('#MaterialGUID' + count).val();
+            var UOMType = $(this).find('#UOMType' + count).val();
+            var Quantity = $(this).find('#Quantity' + count).val();
+            var BatchNumber = $(this).find('#BatchNumber' + count).val();
+            var ExpiryDate = $(this).find('#ExpiryDate' + count).val();
+
+            if (MaterialName == "") {
+                $('#MaterialName' + count).addClass("border-danger");
+                errorexit++;
+            }
+            if (MaterialGUID == "") {
+                $('#MaterialName' + count).addClass("border-danger");
+                errorexit++;
+            }
+            if (UOMType == null) {
+                $('#UOMType' + count).addClass("border-danger");
+                errorexit++;
+            }
+            if (Quantity == "") {
+                $('#Quantity' + count).addClass("border-danger");
+                errorexit++;
+            }
+            if (BatchNumber == "") {
+                $('#BatchNumber' + count).addClass("border-danger");
+                errorexit++;
+            }
+            if (ExpiryDate == "") {
+                $('#ExpiryDate' + count).addClass("border-danger");
+                errorexit++;
+            }
+            count++;
+        });
+        return errorexit;
+    }
+
+    function AddNewRow(count) {
+        var errorexit = checkValidationCurrentRow(count);
+        if (errorexit == 0) {
+            var idstringR = "#Remove" + count;
+            $(idstringR).attr("hidden", true);
+            var idstringA = "#Add" + count;
+            $(idstringA).attr("hidden", true);
+            count++;
+
+            $('#totalCount').val(count);
+            var MaterialNameID = "MaterialName" + count;
+            var MaterialGUID = "MaterialGUID" + count;
+            var UOMType = "UOMType" + count;
+            var tr = "tr" + count;
+            var Remove = "Remove" + count;
+            var Add = "Add" + count;
+            var Quantity = "Quantity" + count;
+            var BatchNumber = "BatchNumber" + count;
+            var ExpiryDate = "ExpiryDate" + count;
+
+            var td1 = '<td><span>' + count + '</span></td>';
+            var td2 = '<td> <div id="Error' + MaterialNameID + '"> <input onfocus="onFocus(\'' + MaterialNameID + '\')"  type="text" class="form-control" id="' + MaterialNameID + '" name="' + MaterialNameID + '" autocomplete="off"  onkeydown="SetAutoComplete(\'' + MaterialNameID + '\',\'' + count + '\')"  ondblclick="doubleClick(\'' + MaterialNameID + '\',\'' + count + '\')" />';
+            td2 += '<input type="hidden" class="form-control" id="' + MaterialGUID + '" name="' + MaterialGUID + '" autocomplete="off" />   </div></td>';
+            var td3 = '<td> <div id="Error' + UOMType + '"> <select onfocus="onFocus(\'' + UOMType + '\')" id="' + UOMType + '" name="' + UOMType + '"  class="form-control"></select></td>'; //repeat
+            var td4 = '<td> <div id="Error' + Quantity + '"> <input onfocus="onFocus(\'' + Quantity + '\')" type="number" class="form-control" id="' + Quantity + '" name="' + Quantity + '" autocomplete="off" min="1" oninput="validity.valid||(value=\'\');" />   </div></td>';
+            var td5 = '<td> <div id="Error' + BatchNumber + '"> <input onfocus="onFocus(\'' + BatchNumber + '\')" onkeypress="return AvoidSpace(event)" type="text" class="form-control" id="' + BatchNumber + '" name="' + BatchNumber + '" autocomplete="off" />   </div></td>';
+            var td6 = '<td> <div id="Error' + ExpiryDate + '"> <input onfocus="onFocus(\'' + ExpiryDate + '\')" type="date" class="form-control" id="' + ExpiryDate + '" name="' + ExpiryDate + '" autocomplete="off" />   </div></td>';
+            var td7 = '<td class="text-center"><div class="list-icons"> <button type="button" id="' + Add + '" class="m-1 btn btn-sm btn-icon rounded-round  btn-success" onclick="AddNewRow(' + count + ')" ><b><i class="icon-plus22"></i></b></button>'; //repeat
+            var td8 = '<button type="button" id="' + Remove + '" class="m-1  btn btn-sm btn-icon rounded-round  btn-danger" onclick="RemoveRow(' + count + ')" ><b><i class="icon-cross2"></i></b></button> </div></td>';
+            $("tbody").append('<tr id="' + tr + '">' + td1 + td2 + td3 + td4 + td5 + td6 + td7 + td8 + '</tr>');
+        }
+    }
+    function getAllData() {
+
+        var WarehouseGUID = $('#Warehouse').val();
+        var data = [];
+        var count = 1;
+        $('#tblOne > tbody > tr').each(function () {
+            var MaterialName = $(this).find('#MaterialName' + count).val();
+            var MaterialGUID = $(this).find('#MaterialGUID' + count).val();
+            var UOMType = $(this).find('#UOMType' + count).val();
+            var Quantity = $(this).find('#Quantity' + count).val();
+            var BatchNumber = $(this).find('#BatchNumber' + count).val();
+            var ExpiryDate = $(this).find('#ExpiryDate' + count).val();
+            var alldata = {
+                'ID': 0,
+                'GUID': "",
+                'MaterialCode': "",
+                'MaterialGUID': MaterialGUID,
+                'MaterialName': MaterialName,
+                'UOMType': UOMType,
+                'WarehouseGUID': WarehouseGUID,
+                'WarehouseName': "",
+                'Quantity': Quantity,
+                'BatchNumber': BatchNumber,
+                'Description': "",
+                'ExpiryDate': ExpiryDate,
+                'CreatedDate': "",
+                'CreatedBy': "",
+                'CreatedByName': "",
+                'UpDatedDate': "",
+                'UpDatedBy': "",
+                'UpDatedByName': "",
+                'Status': 1,
+            }
+            data.push(alldata);
+            count++;
+        });
+        console.log(data);
+        return data;
+    }
+
+    function RemoveRow(count) {
+        var idstring = "#tr" + count;
+        $(idstring).remove();
+
+        count--;
+        $('#totalCount').val(count);
+        var idstringR = "#Remove" + count;
+        $(idstringR).attr("hidden", false);
+
+        var idstringA = "#Add" + count;
+        $(idstringA).attr("hidden", false);
+    }
+
+    $('#btnSubmit').click(function () {
+        $('#confirmModal').modal('hide');
+        $('#cover-spin').show(0);
+        var data = JSON.stringify(getAllData());
+        $.ajax({
+            url: '@Url.Action("SaveOpeningStock", "Stock")',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ 'getepassdata': data }),
+            success: function () {
+                $('#cover-spin').hide(0);
+                setTimeout(function () {
+                    swal({
+                        title: "Saved!",
+                        text: "Your data has been saved!!",
+                            type: "success"
+                            }).then(function() {
+                            window.location = '@Url.Action("StockList", "Stock")';
+                            });
+                }, 1000);
+
+                //alert("Data Added Successfully");
+            },
+            error: function () {
+                alert("Error while inserting data");
+            }
+        });
+    });
+
+
+
+
+</script>
+
+
+

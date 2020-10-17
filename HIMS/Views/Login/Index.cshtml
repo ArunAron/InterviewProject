@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+
+
+        <!-- Content area -->
+       
+            <div class="login-form" >
+                <div class="card mb-0 text-center " style="border-radius:20px;height:75vh">
+                    <div class="card-body">
+                        
+
+                        <h6 class=" font-weight-bold text-info">Inventory Management System</h6>
+                       
+                        <div class="form-signin" id="signInForm">
+                            <span class="d-block text-muted">Please sign in</span>
+                            <hr style="width:100%" class=" bg-blue" />
+                            <div class="form-group">
+                                <label for="inputEmail" class="sr-only">User Name</label>
+                                <input type="text" id="UserName" class="form-control" style="border-radius:15px;background-color:#010b26!important;color:white" placeholder="User Name" required autocomplete="off" autofocus>
+                            </div>
+                            <div class="form-group  ">
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="Password" class="form-control " style="border-radius:15px;background-color:#010b26!important;color:white" placeholder="Password" autocomplete="off" required>
+
+                            </div>
+                            <div class="form-group text-right">
+                                <span id="errorinput" hidden class=" text-size-mini text-danger mr-3">Please Input Required Field ! </span>
+                                <span id="error" hidden class=" text-size-mini text-danger">Invalid User Name or Password ! </span>
+                                <button class="btn  btn-primary  rounded-round" style="border-radius:15px" onclick="CheckLogin()">Check</button>
+                            </div>
+                            @*<p class="mt-5 mb-3 text-muted">&copy; 2020</p>*@
+                        </div>
+                        <div class="form-signin" id="getwarehouse"></div>
+                    </div>
+                </div>
+              
+            </div>
+      
+
+
+
+<script>
+
+    function CheckLogin() {
+        var UserName = $("#UserName").val();
+        var Password = $("#Password").val();
+        var errorexist = 0;
+        if (UserName == null || UserName == "") {
+            $("#errorinput").removeAttr("hidden");
+            errorexist++;
+        }
+
+        if (Password == null || Password == "") {
+            $("#errorinput").removeAttr("hidden");
+            errorexist++;
+        }
+
+        if (errorexist == 0) {
+             $.ajax({
+            cache: false,
+            url: '@Url.Action("CheckLogin", "Login")',
+            contentType: 'application/json; charset=utf-8',
+                data: { UserName: UserName, Password: Password},
+                success: function (myData) {
+                    if (myData == "wrong") {
+                        $("#error").removeAttr("hidden");
+                    }
+                    else {
+                        $("#signInForm").addClass("collapse");
+                        $("#getwarehouse").empty().append('<hr style="width:100%" class=" bg-info" /><div class="d-flex align-items-right mt-5"> <div class="spinner-grow text-info" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-info ml-2 mt-2" style="width: 2rem; height: 2rem;" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow text-info ml-2 mt-3" style="width: 1rem; height: 1rem;" role="status"><span class="sr-only">Loading...</span></div><strong class="h5  font-weight-normal ml-3" style="margin-top:10px">Checking ... </strong></div>');
+                        setTimeout(function () { GetWarehouse(myData); }, 500);
+                    }
+                },
+            complete: function () {
+                }
+            });
+        }
+
+
+    }
+
+    function GetWarehouse(SystemUserGUID) {
+            $.ajax({
+            cache: false,
+            url: '@Url.Action("GetAccessibleWarehouse", "SystemUserWarehouseMap")',
+            contentType: 'application/json; charset=utf-8',
+                data: { SystemUserGUID: SystemUserGUID },
+                beforesend: function () {
+
+                },
+            success: function (myData) {
+                $("#getwarehouse").empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+    }
+
+    $("#UserName").focus(function () {
+        $("#error").attr("hidden", true);
+        $("#errorinput").attr("hidden", true);
+    });
+    $("#Password").focus(function () {
+        $("#error").attr("hidden", true);
+        $("#errorinput").attr("hidden", true);
+    });
+</script>

@@ -1,0 +1,20 @@
+﻿@model  IEnumerable<DataCore.Models.Stock>
+
+@{
+    var count = 1;
+    var CP = Convert.ToInt32(ViewBag.CurrentPagePartial);
+    CP = CP - 1;
+    count = (CP * DataCore.CommonClass.PageSize) + 1;
+
+    foreach (var data in @Model)
+    {
+        <tr>
+            <td>@count</td>
+            <td>@data.MaterialName</td>
+            <td>@data.Quantity</td>
+            <td><span class="font-weight-bold">@data.UOMType</span></td>
+        </tr>
+        count++;
+    }
+}
+

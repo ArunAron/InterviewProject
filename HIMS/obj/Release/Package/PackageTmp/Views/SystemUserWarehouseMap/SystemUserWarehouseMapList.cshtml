@@ -1,0 +1,115 @@
+﻿
+<div class="col-lg-12">
+    <div class="row">
+        <div class=" col-lg-6"><h4 class="panel-title font-weight-bold"> User - Warehouse Mapping</h4></div>
+        <div class=" col-lg-6 text-right"></div>
+    </div>
+    
+    <fieldset class="">
+        <legend class="text-semibold">
+            <i class="icon-search4 position-left"></i>
+            Search Field
+        </legend>
+        <!-- Search Fliters -->
+        <div class="  row ">
+
+            <div class=" col-lg-3">
+                <label class="font-weight-bold">User Name</label>
+                <input type="text" id="SearchSystemUserName" name="SearchSystemUserName" class="form-control" />
+                <input type="hidden" id="SystemUserGUID" name="SystemUserGUID" />
+            </div>
+            <div class=" col-lg-9 text-left"><button class="btn bg-teal-700  rounded-round " style="margin-top:25px" type="button" onclick="showlist()"> Search </button></div>
+          
+
+        </div>
+    </fieldset>
+    <hr />
+    <div id="showlistdata" >
+       
+    </div>
+
+</div>
+
+<script type="text/javascript" src="~/assets/js/core/app.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+      
+        $("#SearchSystemUserName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetSystemUserNameReturnGUID", "Common")',
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.SystemUserName,
+                                value: item.SystemUserName,
+                                id: item.GUID
+                            };
+                        }));
+                    }
+
+                })
+            },
+            select: function (event, ui) {
+                $("#SystemUserGUID").val(ui.item.id);
+            },
+            messages: {
+                noResults: "",
+                results: function (count) {
+                    return count + (count > 1 ? ' results' : ' result ') + ' found';
+                }
+            }
+        });
+    });
+
+    function showlist() {
+        var SystemUserGUID = $('#SystemUserGUID').val();
+       
+             $.ajax({
+            cache: false,
+            url: '@Url.Action("SystemUserWarehouseMapListPartial", "SystemUserWarehouseMap")',
+            contentType: 'application/json; charset=utf-8',
+                 data: { SystemUserGUID: SystemUserGUID},
+
+            success: function (myData) {
+                $("#showlistdata").empty().append(myData);
+                },
+            complete: function () {
+                }
+            });
+        
+
+    }
+
+
+
+    function Access(WarehouseGUID, ID) {
+
+        var Access = 0;
+        if ($("#" + ID).is(":checked")) {
+            Access = 1;
+        }
+
+        var SystemUserGUID = $('#SystemUserGUID').val();
+            $.ajax({
+                cache: false,
+                url: '@Url.Action("GiveAndTakeAccess", "SystemUserWarehouseMap")',
+
+                data: { WarehouseGUID: WarehouseGUID, SystemUserGUID: SystemUserGUID, Access: Access},
+                beforeSend: function () {
+                },
+                success: function (Data) {
+                    showlist();
+                },
+                complete: function () {
+
+                }
+            });
+    }
+
+</script>

@@ -1,0 +1,3 @@
+C:\Custom Place 2\AntTech\IMS\DataAccess\obj\Debug\netstandard2.0\DataAccess.csprojAssemblyReference.cache
+C:\Custom Place 2\AntTech\IMS\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
+C:\Custom Place 2\AntTech\IMS\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
